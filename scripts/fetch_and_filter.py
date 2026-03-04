@@ -94,14 +94,9 @@ def make_story_id(url: str) -> str:
 
 NEWSAPI_URL = "https://newsapi.org/v2/everything"
 
-# Core AI/ML terms paired with prosocial topic terms so we surface
-# relevant stories without drowning in pure tech/finance coverage.
-SEARCH_QUERY = (
-    '(AI OR "machine learning" OR LLM) AND '
-    '(climate OR health OR disease OR science OR humanitarian OR education '
-    'OR accessibility OR conservation OR medicine OR research OR poverty '
-    'OR biodiversity OR "mental health" OR disability OR "public health")'
-)
+# Deliberately broad — the keyword pre-filter and LLM do the real filtering.
+# A complex AND query on the free tier reliably returns 0 results.
+SEARCH_QUERY = '"artificial intelligence" OR "machine learning" OR "large language model"'
 
 
 def fetch_candidates(api_key: str, lookback_hours: int) -> list[dict]:
@@ -112,7 +107,7 @@ def fetch_candidates(api_key: str, lookback_hours: int) -> list[dict]:
     params = {
         "q": SEARCH_QUERY,
         "from": from_dt,
-        "sortBy": "relevancy",
+        "sortBy": "publishedAt",  # relevancy sort is restricted on the free tier
         "pageSize": 100,          # max allowed; stays within free-tier total cap
         "language": "en",
         "apiKey": api_key,
