@@ -1,0 +1,4 @@
+active_prompt: prompts/filter_current.txt
+max_stories_per_day: 10
+lookback_hours: 24
+model: claude-sonnet-4-20250514

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI for Good — Daily Feed</title>
+  <meta name="description" content="A curated daily feed of genuine, beneficial AI applications in the world. Filtered by a strict editorial bar — no hype, no funding news." />
+
+  <meta property="og:title"       content="AI for Good — Daily Feed" />
+  <meta property="og:description" content="A curated daily feed of genuine, beneficial AI applications in the world. Filtered by a strict editorial bar." />
+  <meta property="og:type"        content="website" />
+
+  <!-- Inline SVG favicon: amber circle on dark ground -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230A0A0B'/><circle cx='16' cy='16' r='7' fill='none' stroke='%23C8A96E' stroke-width='2.5'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ======================================================================
+       DESIGN TOKENS
+       Spacing: strict 8pt grid. No off-scale values anywhere in this file.
+       Typography: DM Serif Display (editorial headlines) + Inter (all UI).
+       Color: one amber accent, three text levels, two surface levels.
+    ====================================================================== */
+    :root {
+      /* --- Spacing (8pt grid) ------------------------------------------ */
+      --sp-1:   0.5rem;    /*  8px */
+      --sp-2:   1rem;      /* 16px */
+      --sp-3:   1.5rem;    /* 24px */
+      --sp-4:   2rem;      /* 32px */
+      --sp-6:   3rem;      /* 48px */
+      --sp-8:   4rem;      /* 64px */
+      --sp-12:  6rem;      /* 96px */
+
+      /* --- Color --------------------------------------------------------- */
+      --bg:              #0A0A0B;
+      --surface:         #111113;
+      --surface-hover:   #141417;
+      --border:          #1C1C1F;
+      --border-focus:    #2C2C30;
+
+      --text-primary:    #F0F0F2;
+      --text-secondary:  #8C8C96;
+      --text-tertiary:   #52525A;
+
+      --accent:          #C8A96E;   /* editorial amber — quality signal    */
+      --accent-dim:      rgba(200, 169, 110, 0.20);
+      --accent-subtle:   rgba(200, 169, 110, 0.08);
+
+      /* --- Typography ---------------------------------------------------- */
+      --font-ui:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-editorial:  'DM Serif Display', Georgia, serif;
+
+      /* --- Shape --------------------------------------------------------- */
+      --radius:   6px;
+      --radius-sm: 3px;
+
+      /* --- Layout -------------------------------------------------------- */
+      --col-width: 680px;
+    }
+
+    /* ======================================================================
+       RESET & BASE
+    ====================================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-ui);
+      font-size: 1rem;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ======================================================================
+       COLUMN WRAPPER
+       One pattern, used everywhere. Content never drifts.
+    ====================================================================== */
+    .col {
+      width: 100%;
+      max-width: var(--col-width);
+      margin-inline: auto;
+      padding-inline: var(--sp-3);
+    }
+
+    /* ======================================================================
+       HEADER
+    ====================================================================== */
+    header {
+      padding-top: var(--sp-8);
+      padding-bottom: 0;
+    }
+
+    .wordmark {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;       /* 12px */
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: var(--sp-1);
+    }
+
+    .wordmark em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-size: 0.875rem;      /* 14px */
+      color: var(--text-secondary);
+      line-height: 1.55;
+      max-width: 46ch;
+    }
+
+    .header-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-top: var(--sp-4);
+    }
+
+    /* ======================================================================
+       MAIN
+    ====================================================================== */
+    main {
+      flex: 1;
+      padding-top: var(--sp-6);
+      padding-bottom: var(--sp-12);
+    }
+
+    /* ======================================================================
+       DATE GROUP
+    ====================================================================== */
+    .date-group { margin-bottom: var(--sp-8); }
+
+    .date-label {
+      font-size: 0.6875rem;    /* 11px */
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-3);
+    }
+
+    /* ======================================================================
+       STORY CARD
+    ====================================================================== */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--sp-3);
+      margin-bottom: var(--sp-2);
+      transition: border-color 0.12s ease, background-color 0.12s ease;
+    }
+
+    .card:last-child { margin-bottom: 0; }
+
+    .card:hover {
+      border-color: var(--border-focus);
+      background-color: var(--surface-hover);
+    }
+
+    .card-headline {
+      font-family: var(--font-editorial);
+      font-size: 1.125rem;     /* 18px */
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: var(--sp-2);
+    }
+
+    .card-headline a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.1s ease;
+    }
+
+    .card-headline a:hover { color: var(--accent); }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-1);
+      font-size: 0.75rem;      /* 12px */
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-2);
+    }
+
+    .meta-source {
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .meta-sep {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background-color: var(--text-tertiary);
+      flex-shrink: 0;
+    }
+
+    .card-reason {
+      font-size: 0.8125rem;    /* 13px */
+      line-height: 1.55;
+      color: var(--accent);
+      padding-left: var(--sp-2);
+      border-left: 1px solid var(--accent-dim);
+    }
+
+    /* ======================================================================
+       PENDING CARD VARIANT
+    ====================================================================== */
+    .card.pending {
+      border-color: rgba(200, 169, 110, 0.12);
+    }
+
+    .card.pending .card-reason {
+      color: var(--text-secondary);
+      border-left-color: var(--border-focus);
+    }
+
+    .pending-tag {
+      display: inline-block;
+      font-size: 0.625rem;     /* 10px */
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-subtle);
+      border-radius: var(--radius-sm);
+      padding: 2px 6px;
+      margin-bottom: var(--sp-2);
+    }
+
+    /* ======================================================================
+       PENDING SECTION
+    ====================================================================== */
+    .pending-section {
+      display: none;
+      margin-top: var(--sp-12);
+      padding-top: var(--sp-6);
+      border-top: 1px solid var(--border);
+    }
+
+    .pending-section-label {
+      font-size: 0.6875rem;    /* 11px */
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--sp-1);
+    }
+
+    .pending-section-note {
+      font-size: 0.8125rem;    /* 13px */
+      color: var(--text-tertiary);
+      line-height: 1.55;
+      margin-bottom: var(--sp-4);
+    }
+
+    .pending-section-note code {
+      font-family: 'SFMono-Regular', 'Fira Code', Consolas, monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      background: var(--border);
+      padding: 1px 5px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ======================================================================
+       EMPTY STATE
+    ====================================================================== */
+    .empty-state {
+      padding-top: var(--sp-12);
+      padding-bottom: var(--sp-12);
+    }
+
+    .empty-state h2 {
+      font-size: 0.9375rem;    /* 15px */
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-1);
+    }
+
+    .empty-state p {
+      font-size: 0.875rem;     /* 14px */
+      color: var(--text-tertiary);
+      line-height: 1.6;
+      max-width: 40ch;
+    }
+
+    /* ======================================================================
+       SKELETON LOADER
+       Shimmer travels left-to-right at a natural reading pace.
+    ====================================================================== */
+    @keyframes shimmer {
+      0%   { background-position: -600px 0; }
+      100% { background-position:  600px 0; }
+    }
+
+    .skel-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--sp-3);
+      margin-bottom: var(--sp-2);
+    }
+
+    .skel-line {
+      border-radius: var(--radius-sm);
+      background: linear-gradient(
+        90deg,
+        var(--surface) 25%,
+        var(--border)  50%,
+        var(--surface) 75%
+      );
+      background-size: 1200px 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+
+    .skel-line + .skel-line { margin-top: 10px; }
+    .skel-line.h-18  { height: 18px; }
+    .skel-line.h-14  { height: 14px; }
+    .skel-line.h-12  { height: 12px; }
+    .skel-line.w-100 { width: 100%; }
+    .skel-line.w-72  { width: 72%; }
+    .skel-line.w-48  { width: 48%; }
+    .skel-line.w-88  { width: 88%; }
+
+    .skel-spacer { height: var(--sp-2); }
+
+    /* ======================================================================
+       ERROR STATE
+    ====================================================================== */
+    .load-error {
+      padding-top: var(--sp-12);
+      font-size: 0.875rem;
+      color: var(--text-tertiary);
+    }
+
+    /* ======================================================================
+       FOOTER
+    ====================================================================== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: var(--sp-3) 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-2);
+      font-size: 0.75rem;      /* 12px */
+      color: var(--text-tertiary);
+    }
+
+    footer a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.1s ease;
+    }
+
+    footer a:hover { color: var(--text-secondary); }
+
+    /* ======================================================================
+       ACCESSIBILITY
+    ====================================================================== */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: var(--radius);
+    }
+
+    /* ======================================================================
+       RESPONSIVE
+    ====================================================================== */
+    @media (max-width: 480px) {
+      header { padding-top: var(--sp-6); }
+
+      .card-headline { font-size: 1.0625rem; }  /* 17px on small screens */
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────────────────────── -->
+<header>
+  <div class="col">
+    <p class="wordmark">AI <em>for Good</em></p>
+    <p class="tagline">A curated daily feed of genuine, beneficial AI applications — filtered by a strict editorial bar. No hype. No funding news.</p>
+    <hr class="header-divider" />
+  </div>
+</header>
+
+<!-- ── Content ─────────────────────────────────────────────────────────── -->
+<main>
+  <div class="col">
+    <div id="feed" aria-live="polite" aria-label="Story feed"></div>
+    <div id="pending-section" class="pending-section"></div>
+  </div>
+</main>
+
+<!-- ── Footer ──────────────────────────────────────────────────────────── -->
+<!-- Update the href below to point to your actual repository -->
+<footer>
+  <div class="col footer-inner">
+    <span id="last-updated"></span>
+    <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener noreferrer">Source</a>
+  </div>
+</footer>
+
+<script>
+  // ────────────────────────────────────────────────────────────────────────
+  // Utilities
+  // ────────────────────────────────────────────────────────────────────────
+
+  function esc(str) {
+    return String(str ?? '')
+      .replace(/&/g,  '&amp;')
+      .replace(/</g,  '&lt;')
+      .replace(/>/g,  '&gt;')
+      .replace(/"/g,  '&quot;');
+  }
+
+  // Parse YYYY-MM-DD as local date to prevent timezone-driven day shifts
+  function localDate(dateStr) {
+    const [y, m, d] = (dateStr ?? '').split('-').map(Number);
+    if (!y) return null;
+    return new Date(y, m - 1, d);
+  }
+
+  function formatDateFull(dateStr) {
+    const dt = localDate(dateStr);
+    if (!dt) return dateStr ?? '';
+    return dt.toLocaleDateString('en-US', {
+      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
+    });
+  }
+
+  function formatDateShort(dateStr) {
+    const dt = localDate(dateStr);
+    if (!dt) return dateStr ?? '';
+    return dt.toLocaleDateString('en-US', {
+      month: 'long', day: 'numeric', year: 'numeric',
+    });
+  }
+
+  function formatTimestamp(iso) {
+    if (!iso) return '';
+    return new Date(iso).toLocaleString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric',
+      hour: '2-digit', minute: '2-digit', timeZoneName: 'short',
+    });
+  }
+
+  // Group story array into [[dateStr, stories[]], ...], preserving order
+  function groupByDate(stories) {
+    const map = new Map();
+    for (const s of stories) {
+      const k = s.date ?? 'unknown';
+      if (!map.has(k)) map.set(k, []);
+      map.get(k).push(s);
+    }
+    return [...map.entries()];
+  }
+
+  // ────────────────────────────────────────────────────────────────────────
+  // Skeleton
+  // ────────────────────────────────────────────────────────────────────────
+
+  function skeletonHtml() {
+    const card = (widths) => `
+      <div class="skel-card" aria-hidden="true">
+        ${widths.map(([h, w]) =>
+          `<div class="skel-line ${h} ${w}"></div>`
+        ).join('')}
+      </div>`;
+
+    return [
+      card([['h-18','w-100'],['h-18','w-72'],['skel-spacer','w-100'],['h-12','w-48'],['skel-spacer','w-100'],['h-14','w-88']]),
+      card([['h-18','w-88'],['skel-spacer','w-100'],['h-12','w-48'],['skel-spacer','w-100'],['h-14','w-100']]),
+      card([['h-18','w-100'],['h-18','w-48'],['skel-spacer','w-100'],['h-12','w-72'],['skel-spacer','w-100'],['h-14','w-88']]),
+    ].join('');
+  }
+
+  // ────────────────────────────────────────────────────────────────────────
+  // Rendering
+  // ────────────────────────────────────────────────────────────────────────
+
+  function cardHtml(story, isPending) {
+    return `
+      <article class="card${isPending ? ' pending' : ''}">
+        ${isPending ? '<span class="pending-tag">Awaiting review</span>' : ''}
+        <h2 class="card-headline">
+          <a href="${esc(story.url)}"
+             target="_blank"
+             rel="noopener noreferrer">
+            ${esc(story.headline)}
+          </a>
+        </h2>
+        <div class="card-meta">
+          <span class="meta-source">${esc(story.source)}</span>
+          <span class="meta-sep" role="presentation"></span>
+          <span>${esc(formatDateShort(story.date))}</span>
+        </div>
+        <p class="card-reason">${esc(story.reason)}</p>
+      </article>`;
+  }
+
+  function feedHtml(stories) {
+    if (stories.length === 0) {
+      return `
+        <div class="empty-state">
+          <h2>Nothing passed the bar today</h2>
+          <p>The filter is strict by design — stories that don't satisfy every criterion are rejected outright. Check back tomorrow.</p>
+        </div>`;
+    }
+    return groupByDate(stories)
+      .map(([date, group]) => `
+        <div class="date-group">
+          <p class="date-label">${esc(formatDateFull(date))}</p>
+          ${group.map(s => cardHtml(s, false)).join('\n')}
+        </div>`)
+      .join('\n');
+  }
+
+  function pendingHtml(pending) {
+    const n = pending.length;
+    return `
+      <p class="pending-section-label">Pending review</p>
+      <p class="pending-section-note">
+        ${n === 1 ? 'One story' : `${n} stories`} passed with medium
+        confidence and ${n === 1 ? 'is' : 'are'} awaiting manual review.
+        Approve with
+        <code>python scripts/manage.py approve &lt;id&gt;</code>.
+      </p>
+      ${pending.map(s => cardHtml(s, true)).join('\n')}`;
+  }
+
+  // ────────────────────────────────────────────────────────────────────────
+  // Init
+  // ────────────────────────────────────────────────────────────────────────
+
+  async function init() {
+    const feedEl    = document.getElementById('feed');
+    const pendingEl = document.getElementById('pending-section');
+    const tsEl      = document.getElementById('last-updated');
+
+    feedEl.innerHTML = skeletonHtml();
+
+    try {
+      const resp = await fetch('data/stories.json');
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const data = await resp.json();
+
+      const stories = data.stories ?? [];
+      const pending = data.pending ?? [];
+
+      feedEl.innerHTML = feedHtml(stories);
+
+      if (pending.length > 0) {
+        pendingEl.innerHTML = pendingHtml(pending);
+        pendingEl.style.display = 'block';
+      }
+
+      if (data.last_updated) {
+        tsEl.textContent = 'Updated ' + formatTimestamp(data.last_updated);
+      }
+
+    } catch (err) {
+      feedEl.innerHTML = `
+        <p class="load-error">Unable to load feed — ${esc(err.message)}</p>`;
+    }
+  }
+
+  init();
+</script>
+</body>
+</html>

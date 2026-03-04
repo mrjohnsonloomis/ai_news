@@ -1,0 +1,77 @@
+name: Daily feed update
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # 08:00 UTC every day
+  workflow_dispatch:       # also triggerable manually from the Actions tab
+
+# The built-in GITHUB_TOKEN needs write access to push data/stories.json
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30   # guard against hung API calls
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --quiet anthropic requests pyyaml
+
+      # Runs the full fetch → filter → write pipeline.
+      # Writes stories_added and pending_added to GITHUB_OUTPUT.
+      - name: Run pipeline
+        id: pipeline
+        env:
+          NEWS_API_KEY:      ${{ secrets.NEWS_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/fetch_and_filter.py
+
+      # Only commits if data/stories.json actually changed.
+      # Commit message reflects the counts emitted by the pipeline step.
+      - name: Commit and push changes
+        env:
+          STORIES_ADDED: ${{ steps.pipeline.outputs.stories_added || '0' }}
+          PENDING_ADDED: ${{ steps.pipeline.outputs.pending_added || '0' }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add data/stories.json
+
+          # Primary gate: if the file content didn't change, there's nothing to do.
+          if git diff --staged --quiet; then
+            echo "data/stories.json is unchanged — skipping commit."
+            exit 0
+          fi
+
+          # Secondary gate: both counts should be non-zero if the diff is non-empty,
+          # but guard defensively in case of any mismatch.
+          if [ "${STORIES_ADDED}" = "0" ] && [ "${PENDING_ADDED}" = "0" ]; then
+            echo "Counts are both zero — skipping commit."
+            exit 0
+          fi
+
+          # Singular/plural for a readable commit message
+          if [ "${STORIES_ADDED}" = "1" ]; then
+            STORY_WORD="story"
+          else
+            STORY_WORD="stories"
+          fi
+
+          if [ "${PENDING_ADDED}" = "0" ]; then
+            MSG="Daily update: ${STORIES_ADDED} ${STORY_WORD} added"
+          else
+            MSG="Daily update: ${STORIES_ADDED} ${STORY_WORD} added, ${PENDING_ADDED} pending"
+          fi
+
+          git commit -m "${MSG}"
+          git push
