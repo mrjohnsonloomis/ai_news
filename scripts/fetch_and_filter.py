@@ -171,12 +171,12 @@ def keyword_prefilter(articles: list[dict]) -> list[dict]:
 # LLM filter
 # ---------------------------------------------------------------------------
 
-def parse_llm_response(text: str) -> tuple[str, str, str]:
+def parse_llm_response(text: str) -> tuple[str, str, str, str]:
     """
-    Parse the structured prompt response into (decision, reason, confidence).
+    Parse the structured prompt response into (decision, reason, confidence, tag).
     Returns empty strings for any field that can't be parsed.
     """
-    decision = reason = confidence = ""
+    decision = reason = confidence = tag = ""
     for line in text.strip().splitlines():
         line = line.strip()
         if line.upper().startswith("DECISION:"):
@@ -185,7 +185,9 @@ def parse_llm_response(text: str) -> tuple[str, str, str]:
             reason = line.split(":", 1)[1].strip()
         elif line.upper().startswith("CONFIDENCE:"):
             confidence = line.split(":", 1)[1].strip().upper()
-    return decision, reason, confidence
+        elif line.upper().startswith("TAG:"):
+            tag = line.split(":", 1)[1].strip()
+    return decision, reason, confidence, tag
 
 
 def filter_with_llm(
@@ -240,9 +242,9 @@ def filter_with_llm(
             print(f"  [llm-error] {exc} — skipping '{headline[:60]}'")
             continue
 
-        decision, reason, confidence = parse_llm_response(response_text)
+        decision, reason, confidence, tag = parse_llm_response(response_text)
         label = f"{decision}/{confidence}" if decision else "PARSE_ERROR"
-        print(f"  [{label}] {headline[:70]}")
+        print(f"  [{label}] [{tag or '?'}] {headline[:60]}")
 
         story = {
             "id": sid,
@@ -252,6 +254,7 @@ def filter_with_llm(
             "url": url,
             "summary": summary[:400],
             "reason": reason,
+            "tag": tag or "Other",
         }
 
         if decision == "ACCEPT" and confidence == "HIGH":

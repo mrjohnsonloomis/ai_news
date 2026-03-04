@@ -23,5 +23,6 @@ Respond with exactly this format:
 DECISION: ACCEPT or REJECT
 REASON: One sentence explaining why.
 CONFIDENCE: HIGH, MEDIUM, or LOW
+TAG: Exactly one of: Health, Climate, Science, Education, Accessibility, Humanitarian, Conservation, Other
 
 Only stories with ACCEPT and HIGH confidence should be included in the feed. ACCEPT + MEDIUM should be flagged for manual review.
