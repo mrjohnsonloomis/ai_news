@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-03-06T01:24:48.709364+00:00",
+  "last_updated": "2026-03-06T08:58:22.213913+00:00",
   "stories": [
+    {
+      "id": "1353d358d4fd0945",
+      "date": "2026-03-06",
+      "headline": "Singapore to launch AI tool to flag high-risk patients for heart screening",
+      "source": "CNA",
+      "url": "https://www.channelnewsasia.com/singapore/ai-diabetes-high-cholesterol-health-screening-woodlands-5972401",
+      "summary": "Doctors will be encouraged to use the new tool, which can predict a patient’s risk of developing diabetes or high cholesterol.",
+      "reason": "This describes a real AI tool being launched by Singapore's government to address the genuine healthcare challenge of early detection and prevention of cardiovascular disease, diabetes, and high cholesterol, with benefits flowing to patients and the broader population.",
+      "tag": "Health"
+    },
     {
       "id": "57d5c586b1864ca7",
       "date": "2026-03-06",
