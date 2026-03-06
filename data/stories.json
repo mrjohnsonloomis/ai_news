@@ -1,6 +1,46 @@
 {
-  "last_updated": "2026-03-04T03:09:51.414985+00:00",
+  "last_updated": "2026-03-06T01:24:48.709364+00:00",
   "stories": [
+    {
+      "id": "57d5c586b1864ca7",
+      "date": "2026-03-06",
+      "headline": "Respiratory sound analysis in a rabbit tracheomalacia model",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-42275-8",
+      "summary": "Tracheomalacia, which softens the tracheal wall and leads to airway collapse during breathing, can be challenging to detect, especially in children, due to its vague symptoms and the invasive nature of standard diagnostic procedures. In this study, we develop…",
+      "reason": "This describes a demonstrated AI/ML application for diagnosing a challenging pediatric respiratory condition using non-invasive methods, published in a credible peer-reviewed journal, addressing a genuine medical problem that affects children's health.",
+      "tag": "Health"
+    },
+    {
+      "id": "5b7af218fc49fbb1",
+      "date": "2026-03-06",
+      "headline": "Diagnosis model of early malignant pulmonary nodules based on clinical laboratory data",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-42111-z",
+      "summary": "Accurate differentiation of malignant from benign pulmonary nodules remains challenging. This study aimed to develop and validate machine learning models integrating seven autoantibodies (7-AABs) and routine laboratory parameters for lung cancer risk predicti…",
+      "reason": "This describes a demonstrated machine learning application for early lung cancer detection - a critical healthcare challenge - published in a credible peer-reviewed journal with transparent methodology that could benefit patients broadly.",
+      "tag": "Health"
+    },
+    {
+      "id": "91fae1ec44481785",
+      "date": "2026-03-06",
+      "headline": "Intensive longitudinal brain imaging reveals personalized signatures of chronic pain",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41593-026-02238-8",
+      "summary": "Tracking ongoing spontaneous pain in individuals with chronic pain is challenging. Using intensive longitudinal functional magnetic resonance imaging (fMRI) combined with continuous spontaneous pain ratings in two individuals with fibromyalgia, we trained per…",
+      "reason": "This represents a real ML application addressing the genuine medical challenge of objectively measuring chronic pain, which could benefit millions of sufferers who struggle with subjective pain assessment, and comes from a credible peer-reviewed source with transparent methodology.",
+      "tag": "Health"
+    },
+    {
+      "id": "161c926894d024de",
+      "date": "2026-03-06",
+      "headline": "What It’s Like to Have a Brain Implant for 5 Years",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/synchron-brain-computer-interface-five-years-als/",
+      "summary": "No one has had a Synchron brain-computer interface longer than Rodney Gorham. He’s still finding new ways to use it.",
+      "reason": "This story documents a real, demonstrated brain-computer interface application that addresses the genuine accessibility challenge of severe paralysis, with measurable long-term outcomes from an established credible source.",
+      "tag": "Accessibility"
+    },
     {
       "id": "973da97f15164b7f",
       "date": "2026-03-04",
@@ -20,5 +60,36 @@
       "reason": "This describes a developed and validated ML model addressing the genuine medical challenge of predicting secondary infections in liver failure patients, published in a credible peer-reviewed source with transparent methodology."
     }
   ],
-  "pending": []
+  "pending": [
+    {
+      "id": "e396fca40e8ec600",
+      "date": "2026-03-06",
+      "headline": "Enhanced cervical cancer diagnosis using a novel Bayesian fusion ensemble method with explainable AI",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-35334-7",
+      "summary": "Cervical cancer is one of the leading causes of death in women, especially in low- and middle-income countries. Early disease detection is crucial for improving survival, but conventional methods are inefficient, costly, and error-prone. In this study, we pre…",
+      "reason": "This describes a demonstrated AI methodology for improving cervical cancer diagnosis published in a credible peer-reviewed journal, addressing a major global health problem that disproportionately affects women in underserved populations.",
+      "tag": "Health"
+    },
+    {
+      "id": "1d8c838a3ba6018c",
+      "date": "2026-03-06",
+      "headline": "Unsupervised cluster analysis identifies risk profiles driving heterogeneity and survival patterns in aortic aneurysm patients",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-41344-2",
+      "summary": "Scientific Reports - Unsupervised cluster analysis identifies risk profiles driving heterogeneity and survival patterns in aortic aneurysm patients",
+      "reason": "This is a peer-reviewed scientific study demonstrating a real ML application that addresses the genuine medical challenge of understanding patient heterogeneity in aortic aneurysms, which could improve treatment outcomes for patients.",
+      "tag": "Health"
+    },
+    {
+      "id": "ecb91f5469ab58c0",
+      "date": "2026-03-06",
+      "headline": "誰も遊び方を知らない「ローマ時代のボードゲーム」のルールをAIで推測することに成功",
+      "source": "Livedoor.com",
+      "url": "https://news.livedoor.com/article/detail/30698811/",
+      "summary": "ボードゲームは古くから世界中で楽しまれてきた遊びですが、中には現代まで遊び方が伝わっていないものもあります。オランダにあるローマ時代の遺跡から発掘された「ボードゲームの盤らしき遺物」について、AIを使ってゲームのルールを推測したとの研究結果が報告されました。Ludus Coriovalli: using artificial intelligence-driven simulations to identify rules for an ancient board game | Antiquity | Cambr…",
+      "reason": "This describes a real AI application that successfully reconstructed rules for an ancient Roman board game, contributing to cultural preservation and archaeological understanding - a genuine scientific and heritage challenge.",
+      "tag": "Conservation"
+    }
+  ]
 }
