@@ -24,7 +24,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install --quiet anthropic requests pyyaml
+        run: pip install --quiet anthropic feedparser requests pyyaml
 
       # Runs the full fetch → filter → write pipeline.
       # Writes stories_added and pending_added to GITHUB_OUTPUT.
@@ -32,6 +32,7 @@ jobs:
         id: pipeline
         env:
           NEWS_API_KEY:      ${{ secrets.NEWS_API_KEY }}
+          GUARDIAN_API:      ${{ secrets.GUARDIAN_API }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/fetch_and_filter.py
 

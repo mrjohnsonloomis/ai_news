@@ -20,52 +20,36 @@
   <style>
     /* ======================================================================
        DESIGN TOKENS
-       8pt spacing grid. Warm paper palette. Botanical green accent.
-       DM Serif Display for editorial headlines. Inter for all UI.
     ====================================================================== */
     :root {
-      /* Spacing — strict 8pt grid */
-      --sp-1:  0.5rem;   /*  8px */
-      --sp-2:  1rem;     /* 16px */
-      --sp-3:  1.5rem;   /* 24px */
-      --sp-4:  2rem;     /* 32px */
-      --sp-6:  3rem;     /* 48px */
-      --sp-8:  4rem;     /* 64px */
-      --sp-12: 6rem;     /* 96px */
+      /* Spacing — 8pt grid */
+      --sp-1:  0.5rem;
+      --sp-2:  1rem;
+      --sp-3:  1.5rem;
+      --sp-4:  2rem;
+      --sp-6:  3rem;
+      --sp-8:  4rem;
+      --sp-12: 6rem;
 
-      /* Surfaces */
-      --bg:           #F5F3EE;
-      --surface:      #FFFFFF;
-      --border:       #E2DFD8;
-      --border-focus: #C4C0B7;
+      /* Palette */
+      --bg:             #F5F3EE;
+      --border:         #D8D4CB;
+      --border-strong:  #1A1916;
 
       /* Text */
       --text-primary:   #1A1916;
       --text-secondary: #64615C;
       --text-tertiary:  #9C9891;
 
-      /* Accent — botanical green */
-      --accent:        #2A5F3E;
-      --accent-text:   #1E4530;
-      --accent-bg:     #EAF2ED;
-      --accent-border: rgba(42, 95, 62, 0.2);
-
-      /* Tags */
-      --tag-bg:          #ECEAE4;
-      --tag-text:        #58554F;
-      --tag-active-bg:   #2A5F3E;
-      --tag-active-text: #FFFFFF;
+      /* Accent — botanical green, used once: the Featured eyebrow */
+      --accent: #2A5F3E;
 
       /* Typography */
       --font-ui:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-editorial: 'DM Serif Display', Georgia, serif;
 
-      /* Shape — one radius, used everywhere */
-      --radius:    5px;
-      --radius-sm: 3px;
-
       /* Layout */
-      --col-width: 1100px;
+      --col-width: 960px;
     }
 
     /* ======================================================================
@@ -79,7 +63,7 @@
       font-family: var(--font-ui);
       font-size: 1rem;
       line-height: 1.6;
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -89,7 +73,7 @@
     }
 
     /* ======================================================================
-       COLUMN WRAPPER — one pattern, used everywhere
+       COLUMN WRAPPER
     ====================================================================== */
     .col {
       width: 100%;
@@ -102,27 +86,18 @@
        MASTHEAD
     ====================================================================== */
     .masthead {
-      padding-top: var(--sp-6);
-      border-bottom: 2px solid var(--text-primary);
-    }
-
-    .masthead-body {
+      padding-top: var(--sp-8);
+      padding-bottom: var(--sp-4);
       text-align: center;
-      padding-bottom: var(--sp-3);
-    }
-
-    .masthead-rule {
-      border: none;
-      border-top: 1px solid var(--text-primary);
-      margin-bottom: var(--sp-3);
+      border-bottom: 1px solid var(--border-strong);
     }
 
     .masthead-name {
       font-family: var(--font-editorial);
-      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 400;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
+      letter-spacing: -0.025em;
+      line-height: 1;
       color: var(--text-primary);
       margin-bottom: var(--sp-2);
     }
@@ -131,126 +106,46 @@
       font-size: 0.9375rem;
       font-style: italic;
       color: var(--text-secondary);
-      max-width: 52ch;
+      max-width: 50ch;
       margin-inline: auto;
       line-height: 1.5;
     }
-
-    /* Three-column strip below the editorial text: date · edition · source */
-    .masthead-strip {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      padding: var(--sp-1) 0;
-      margin-top: var(--sp-3);
-      border-top: 1px solid var(--border);
-      font-size: 0.6875rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-    }
-
-    .masthead-strip-center { text-align: center; }
-
-    .masthead-strip-right {
-      text-align: right;
-    }
-
-    .masthead-strip a {
-      color: var(--text-tertiary);
-      text-decoration: none;
-      transition: color 0.1s;
-    }
-
-    .masthead-strip a:hover { color: var(--text-secondary); }
 
     /* ======================================================================
        MAIN
     ====================================================================== */
     main {
       flex: 1;
-      padding-top: var(--sp-6);
+      padding-top: var(--sp-8);
       padding-bottom: var(--sp-12);
-    }
-
-    /* ======================================================================
-       TAG FILTER BAR
-    ====================================================================== */
-    .filter-bar {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-1);
-      flex-wrap: wrap;
-      padding-bottom: var(--sp-4);
-      border-bottom: 1px solid var(--border);
-      margin-bottom: var(--sp-6);
-    }
-
-    .filter-label {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-right: var(--sp-1);
-      flex-shrink: 0;
-    }
-
-    .tag-btn {
-      font-family: var(--font-ui);
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--tag-text);
-      background: var(--tag-bg);
-      border: 1px solid transparent;
-      border-radius: 100px;
-      padding: 3px 12px;
-      cursor: pointer;
-      transition: background-color 0.1s, color 0.1s;
-      white-space: nowrap;
-      line-height: 1.6;
-    }
-
-    .tag-btn:hover {
-      background: var(--border-focus);
-      color: var(--text-primary);
-    }
-
-    .tag-btn.active {
-      background: var(--tag-active-bg);
-      color: var(--tag-active-text);
     }
 
     /* ======================================================================
        FEATURED STORY
     ====================================================================== */
     .featured-wrap {
-      margin-bottom: var(--sp-6);
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      gap: var(--sp-8);
+      margin-bottom: var(--sp-8);
     }
 
-    .section-eyebrow {
+    .featured-eyebrow {
       font-size: 0.6875rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent-text);
+      color: var(--accent);
       margin-bottom: var(--sp-2);
-    }
-
-    .featured-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--accent);
-      border-radius: var(--radius);
-      padding: var(--sp-6);
     }
 
     .featured-headline {
       font-family: var(--font-editorial);
-      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      font-size: clamp(1.75rem, 3.5vw, 2.625rem);
       font-weight: 400;
-      line-height: 1.3;
-      margin-bottom: var(--sp-3);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: var(--sp-2);
     }
 
     .featured-headline a {
@@ -261,105 +156,62 @@
 
     .featured-headline a:hover { color: var(--accent); }
 
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-1);
-      font-size: 0.75rem;
+    .featured-right {
+      padding-top: 0.2rem; /* optical alignment with eyebrow baseline */
+    }
+
+    .featured-summary {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: var(--sp-3);
+    }
+
+    .featured-note {
+      font-size: 0.9375rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ======================================================================
+       METADATA — date only, left-aligned
+    ====================================================================== */
+    .card-date {
+      font-size: 0.8125rem;
       color: var(--text-tertiary);
       margin-bottom: var(--sp-3);
     }
 
-    .meta-source {
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-
-    .meta-sep {
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--text-tertiary);
-      flex-shrink: 0;
-    }
-
-    .featured-summary {
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: var(--sp-3);
-      max-width: 72ch;
-    }
-
-    .featured-reason {
-      font-size: 0.875rem;
-      line-height: 1.55;
-      color: var(--accent-text);
-      border-left: 2px solid var(--accent);
-      padding-left: var(--sp-2);
-      margin-bottom: var(--sp-3);
-    }
-
     /* ======================================================================
-       TAG PILL — used on both featured and grid cards
+       GRID SEPARATOR
     ====================================================================== */
-    .tag-pill {
-      display: inline-block;
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--tag-text);
-      background: var(--tag-bg);
-      border-radius: 100px;
-      padding: 2px 10px;
+    .grid-separator {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-bottom: var(--sp-6);
     }
 
     /* ======================================================================
        STORY GRID & CARDS
     ====================================================================== */
-    .grid-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: var(--sp-3);
-      padding-bottom: var(--sp-2);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .grid-label {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-    }
-
     .story-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--sp-2);
+      gap: var(--sp-6);
     }
 
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--sp-3);
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-2);
-      transition: border-color 0.12s ease;
+      border-top: 1px solid var(--border);
+      padding-top: var(--sp-3);
     }
-
-    .card:hover { border-color: var(--border-focus); }
 
     .card-headline {
       font-family: var(--font-editorial);
-      font-size: 1.0625rem;
+      font-size: 1.125rem;
       font-weight: 400;
-      line-height: 1.4;
-      flex: 1;
+      line-height: 1.35;
+      margin-bottom: var(--sp-1);
     }
 
     .card-headline a {
@@ -370,12 +222,12 @@
 
     .card-headline a:hover { color: var(--accent); }
 
-    .card-reason {
-      font-size: 0.8125rem;
-      line-height: 1.5;
+    .card-note {
+      font-size: 0.875rem;
+      font-style: italic;
       color: var(--text-secondary);
-      border-left: 1px solid var(--accent-border);
-      padding-left: var(--sp-2);
+      line-height: 1.55;
+      margin-top: var(--sp-2);
     }
 
     /* ======================================================================
@@ -391,14 +243,14 @@
     .pending-eyebrow {
       font-size: 0.6875rem;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-tertiary);
       margin-bottom: var(--sp-1);
     }
 
     .pending-note {
-      font-size: 0.8125rem;
+      font-size: 0.875rem;
       color: var(--text-tertiary);
       line-height: 1.55;
       margin-bottom: var(--sp-4);
@@ -409,22 +261,10 @@
       font-size: 0.75rem;
       background: var(--border);
       padding: 1px 5px;
-      border-radius: var(--radius-sm);
+      border-radius: 3px;
     }
 
-    .pending-tag-badge {
-      display: inline-block;
-      font-size: 0.625rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      background: var(--tag-bg);
-      border-radius: 100px;
-      padding: 2px 8px;
-    }
-
-    .card.pending { opacity: 0.72; }
+    .card.pending { opacity: 0.6; }
 
     /* ======================================================================
        EMPTY STATE
@@ -434,17 +274,11 @@
       padding: var(--sp-12) 0;
     }
 
-    .empty-state h2 {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-bottom: var(--sp-1);
-    }
-
     .empty-state p {
-      font-size: 0.875rem;
-      color: var(--text-tertiary);
-      max-width: 40ch;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      max-width: 44ch;
       line-height: 1.6;
     }
 
@@ -456,26 +290,13 @@
       100% { background-position:  600px 0; }
     }
 
-    .skel-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--sp-3);
-    }
-
-    .skel-featured {
-      border-top: 3px solid var(--border);
-      padding: var(--sp-6);
-      margin-bottom: var(--sp-6);
-    }
-
     .skel-line {
-      border-radius: var(--radius-sm);
+      border-radius: 3px;
       background: linear-gradient(
         90deg,
-        var(--surface)  25%,
-        var(--border)   50%,
-        var(--surface)  75%
+        var(--bg)     25%,
+        var(--border) 50%,
+        var(--bg)     75%
       );
       background-size: 1200px 100%;
       animation: shimmer 1.5s ease-in-out infinite;
@@ -483,24 +304,39 @@
 
     .skel-line + .skel-line { margin-top: 10px; }
 
-    .skel-line.h-28  { height: 28px; }
-    .skel-line.h-18  { height: 18px; }
+    .skel-line.h-40  { height: 40px; }
+    .skel-line.h-20  { height: 20px; }
     .skel-line.h-14  { height: 14px; }
     .skel-line.h-12  { height: 12px; }
     .skel-line.w-100 { width: 100%; }
     .skel-line.w-80  { width: 80%; }
-    .skel-line.w-55  { width: 55%; }
+    .skel-line.w-60  { width: 60%; }
     .skel-line.w-40  { width: 40%; }
 
     .skel-spacer-sm { height: var(--sp-2); }
-    .skel-spacer-md { height: var(--sp-4); }
+    .skel-spacer    { height: var(--sp-3); }
+    .skel-spacer-lg { height: var(--sp-8); }
+
+    .skel-featured  { margin-bottom: var(--sp-8); }
+
+    .skel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-6);
+    }
+
+    .skel-card {
+      border-top: 1px solid var(--border);
+      padding-top: var(--sp-3);
+    }
 
     /* ======================================================================
        LOAD ERROR
     ====================================================================== */
     .load-error {
       padding-top: var(--sp-12);
-      font-size: 0.875rem;
+      font-size: 1rem;
+      font-style: italic;
       color: var(--text-tertiary);
     }
 
@@ -520,29 +356,34 @@
       color: var(--text-tertiary);
     }
 
+    .footer-inner a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+    }
+
+    .footer-inner a:hover { color: var(--text-secondary); }
+
     /* ======================================================================
        ACCESSIBILITY
     ====================================================================== */
     :focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
-      border-radius: var(--radius);
+      border-radius: 3px;
     }
 
     /* ======================================================================
        RESPONSIVE
     ====================================================================== */
-    @media (max-width: 780px) {
-      .story-grid { grid-template-columns: 1fr; }
-      .featured-card { padding: var(--sp-3); }
+    @media (max-width: 640px) {
+      .featured-wrap { grid-template-columns: 1fr; gap: var(--sp-4); }
+      .story-grid    { grid-template-columns: 1fr; }
+      .skel-grid     { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
-      :root { --sp-4: 1rem; }
-      .masthead-name { letter-spacing: -0.01em; }
-      .masthead-strip { grid-template-columns: 1fr; gap: 2px; text-align: left; }
-      .masthead-strip-center,
-      .masthead-strip-right { text-align: left; }
+      :root { --sp-4: 1.25rem; --sp-8: 3rem; }
+      .masthead-name { letter-spacing: -0.015em; }
     }
   </style>
 </head>
@@ -552,18 +393,8 @@
 <header>
   <div class="col">
     <div class="masthead">
-      <div class="masthead-body">
-        <hr class="masthead-rule" />
-        <h1 class="masthead-name">Better Problems</h1>
-        <p class="masthead-tagline">Surfacing stories of AI genuinely helping humanity — cutting through the hype and the doom to find what's actually working.</p>
-      </div>
-      <div class="masthead-strip">
-        <span id="pub-date"></span>
-        <span class="masthead-strip-center">Daily &thinsp;·&thinsp; Editorially filtered</span>
-        <span class="masthead-strip-right">
-          <a href="https://github.com/mrjohnsonloomis/ai_news" target="_blank" rel="noopener noreferrer">Source</a>
-        </span>
-      </div>
+      <h1 class="masthead-name">Better Problems</h1>
+      <p class="masthead-tagline">Surfacing stories of AI genuinely helping humanity — cutting through the hype and the doom to find what's actually working.</p>
     </div>
   </div>
 </header>
@@ -571,7 +402,7 @@
 <!-- ── Content ─────────────────────────────────────────────────────────── -->
 <main>
   <div class="col">
-    <!-- Filter bar: rendered after data loads -->
+    <!-- Filter bar placeholder (kept for future use, not rendered) -->
     <div id="filter-bar"></div>
 
     <!-- Story content: re-rendered on filter change -->
@@ -586,7 +417,7 @@
 <footer>
   <div class="col footer-inner">
     <span id="last-updated"></span>
-    <span>Stories older than 90 days are pruned automatically.</span>
+    <a href="https://github.com/mrjohnsonloomis/ai_news" target="_blank" rel="noopener noreferrer">Source</a>
   </div>
 </footer>
 
@@ -597,12 +428,6 @@
 
   let currentFilter = 'all';
   let allStories    = [];
-
-  // Canonical tag order for the filter bar
-  const TAG_ORDER = [
-    'Health', 'Climate', 'Science', 'Education',
-    'Accessibility', 'Humanitarian', 'Conservation', 'Other',
-  ];
 
   // ────────────────────────────────────────────────────────────────────────
   // Utilities
@@ -620,13 +445,6 @@
   function localDate(dateStr) {
     const [y, m, d] = (dateStr ?? '').split('-').map(Number);
     return (y && m && d) ? new Date(y, m - 1, d) : null;
-  }
-
-  function formatDateFull(dateStr) {
-    const dt = localDate(dateStr);
-    return dt ? dt.toLocaleDateString('en-US', {
-      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
-    }) : (dateStr ?? '');
   }
 
   function formatDateShort(dateStr) {
@@ -658,29 +476,36 @@
 
   function skeletonHtml() {
     return `
-      <div class="skel-card skel-featured" aria-hidden="true">
-        <div class="skel-line h-28 w-100"></div>
-        <div class="skel-line h-28 w-80"></div>
-        <div class="skel-spacer-md"></div>
-        <div class="skel-line h-14 w-40"></div>
-        <div class="skel-spacer-md"></div>
-        <div class="skel-line h-14 w-100"></div>
-        <div class="skel-line h-14 w-80"></div>
-        <div class="skel-line h-14 w-55"></div>
+      <div class="skel-featured featured-wrap" aria-hidden="true">
+        <div class="featured-left">
+          <div class="skel-line h-12 w-40"></div>
+          <div class="skel-spacer-sm"></div>
+          <div class="skel-line h-40 w-100"></div>
+          <div class="skel-line h-40 w-80"></div>
+          <div class="skel-spacer-sm"></div>
+          <div class="skel-line h-12 w-40"></div>
+        </div>
+        <div class="featured-right">
+          <div class="skel-line h-14 w-100"></div>
+          <div class="skel-line h-14 w-100"></div>
+          <div class="skel-line h-14 w-80"></div>
+          <div class="skel-spacer"></div>
+          <div class="skel-line h-14 w-100"></div>
+          <div class="skel-line h-14 w-60"></div>
+        </div>
       </div>
-      <div class="story-grid" aria-hidden="true">
-        ${['w-100 w-80', 'w-80 w-100'].map(ws => {
-          const [a, b] = ws.split(' ');
-          return `
-            <div class="skel-card">
-              <div class="skel-line h-18 ${a}"></div>
-              <div class="skel-line h-18 ${b}"></div>
-              <div class="skel-spacer-sm"></div>
-              <div class="skel-line h-12 w-40"></div>
-              <div class="skel-spacer-sm"></div>
-              <div class="skel-line h-14 w-100"></div>
-            </div>`;
-        }).join('')}
+      <hr class="grid-separator" aria-hidden="true" />
+      <div class="skel-grid" aria-hidden="true">
+        ${[1, 2].map(() => `
+          <div class="skel-card">
+            <div class="skel-line h-20 w-100"></div>
+            <div class="skel-line h-20 w-80"></div>
+            <div class="skel-spacer-sm"></div>
+            <div class="skel-line h-12 w-40"></div>
+            <div class="skel-spacer-sm"></div>
+            <div class="skel-line h-14 w-100"></div>
+            <div class="skel-line h-14 w-80"></div>
+          </div>`).join('')}
       </div>`;
   }
 
@@ -688,36 +513,29 @@
   // Rendering
   // ────────────────────────────────────────────────────────────────────────
 
-  function tagPill(story) {
-    const t = normalizeTag(story.tag);
-    return `<span class="tag-pill">${esc(t)}</span>`;
-  }
-
   function metaHtml(story) {
-    return `
-      <div class="card-meta">
-        <span class="meta-source">${esc(story.source)}</span>
-        <span class="meta-sep" role="presentation"></span>
-        <span>${esc(formatDateShort(story.date))}</span>
-      </div>`;
+    return `<p class="card-date">${esc(formatDateShort(story.date))}</p>`;
   }
 
   function featuredHtml(story) {
     return `
       <div class="featured-wrap">
-        <p class="section-eyebrow">Featured</p>
-        <div class="featured-card">
+        <div class="featured-left">
+          <p class="featured-eyebrow">Featured</p>
           <h2 class="featured-headline">
             <a href="${esc(story.url)}" target="_blank" rel="noopener noreferrer">
               ${esc(story.headline)}
             </a>
           </h2>
           ${metaHtml(story)}
+        </div>
+        <div class="featured-right">
           ${story.summary
             ? `<p class="featured-summary">${esc(story.summary)}</p>`
             : ''}
-          <p class="featured-reason">${esc(story.reason)}</p>
-          ${story.tag ? tagPill(story) : ''}
+          ${story.reason
+            ? `<p class="featured-note">${esc(story.reason)}</p>`
+            : ''}
         </div>
       </div>`;
   }
@@ -731,17 +549,16 @@
           </a>
         </h3>
         ${metaHtml(story)}
-        <p class="card-reason">${esc(story.reason)}</p>
-        ${story.tag ? tagPill(story) : ''}
+        ${story.reason
+          ? `<p class="card-note">${esc(story.reason)}</p>`
+          : ''}
       </article>`;
   }
 
   function gridHtml(stories) {
     if (stories.length === 0) return '';
     return `
-      <div class="grid-header">
-        <span class="grid-label">More stories</span>
-      </div>
+      <hr class="grid-separator" />
       <div class="story-grid">
         ${stories.map(s => gridCardHtml(s)).join('\n')}
       </div>`;
@@ -754,7 +571,6 @@
     return `
       <div class="story-grid">
         <div class="empty-state">
-          <h2>${currentFilter === 'all' ? 'Nothing passed the bar today' : `No ${esc(currentFilter)} stories yet`}</h2>
           <p>${esc(msg)}</p>
         </div>
       </div>`;
@@ -767,18 +583,9 @@
     return featuredHtml(featured) + gridHtml(rest);
   }
 
+  // Filter bar suppressed per design direction — function kept for future use
   function filterBarHtml(stories) {
-    const presentTags = [...new Set(stories.map(s => normalizeTag(s.tag)))];
-    const tags = TAG_ORDER.filter(t => presentTags.includes(t));
-    if (tags.length === 0) return '';
-    return `
-      <div class="filter-bar" role="group" aria-label="Filter stories by topic">
-        <span class="filter-label">Topic</span>
-        <button class="tag-btn active" data-tag="all">All</button>
-        ${tags.map(t => `
-          <button class="tag-btn" data-tag="${esc(t)}">${esc(t)}</button>
-        `).join('')}
-      </div>`;
+    return '';
   }
 
   function pendingHtml(pending) {
@@ -793,20 +600,19 @@
       <div class="story-grid">
         ${pending.map(s => `
           <article class="card pending">
-            <span class="pending-tag-badge">Awaiting review</span>
             <h3 class="card-headline">
               <a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">
                 ${esc(s.headline)}
               </a>
             </h3>
             ${metaHtml(s)}
-            <p class="card-reason">${esc(s.reason)}</p>
+            ${s.reason ? `<p class="card-note">${esc(s.reason)}</p>` : ''}
           </article>`).join('\n')}
       </div>`;
   }
 
   // ────────────────────────────────────────────────────────────────────────
-  // Filter interaction
+  // Filter interaction (logic preserved, UI suppressed)
   // ────────────────────────────────────────────────────────────────────────
 
   function applyFilter(tag) {
@@ -822,16 +628,10 @@
   // ────────────────────────────────────────────────────────────────────────
 
   async function init() {
-    const filterBarEl  = document.getElementById('filter-bar');
-    const contentEl    = document.getElementById('story-content');
-    const pendingEl    = document.getElementById('pending-section');
-    const tsEl         = document.getElementById('last-updated');
-    const pubDateEl    = document.getElementById('pub-date');
-
-    // Today's date in the masthead strip
-    pubDateEl.textContent = new Date().toLocaleDateString('en-US', {
-      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric',
-    });
+    const filterBarEl = document.getElementById('filter-bar');
+    const contentEl   = document.getElementById('story-content');
+    const pendingEl   = document.getElementById('pending-section');
+    const tsEl        = document.getElementById('last-updated');
 
     // Show skeleton immediately
     contentEl.innerHTML = skeletonHtml();
@@ -844,11 +644,10 @@
       allStories = data.stories ?? [];
       const pending = data.pending ?? [];
 
-      // Render filter bar (only if tags exist in the data)
+      // Render filter bar (currently returns empty string)
       const barHtml = filterBarHtml(allStories);
       if (barHtml) {
         filterBarEl.innerHTML = barHtml;
-        // Event delegation — one listener handles all tag buttons
         filterBarEl.addEventListener('click', e => {
           const btn = e.target.closest('.tag-btn');
           if (btn) applyFilter(btn.dataset.tag);

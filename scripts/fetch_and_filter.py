@@ -3,9 +3,11 @@
 fetch_and_filter.py — Daily pipeline: fetch news → keyword pre-filter →
 LLM filter → write accepted stories to data/stories.json.
 
-Dependencies: anthropic, requests, pyyaml
+Dependencies: anthropic, feedparser, requests, pyyaml
 Usage: python scripts/fetch_and_filter.py
-Secrets expected as env vars: NEWS_API_KEY, ANTHROPIC_API_KEY
+Secrets expected as env vars: ANTHROPIC_API_KEY
+Optional:                      NEWS_API_KEY, GUARDIAN_API
+(Hacker News and RSS feeds require no keys.)
 """
 
 import hashlib
@@ -17,6 +19,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import anthropic
+import feedparser
 import requests
 import yaml
 
@@ -89,26 +92,35 @@ def make_story_id(url: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Normalised article structure
+#
+# All fetch functions return a list of dicts with these keys:
+#   title       str
+#   url         str
+#   description str   (may be empty for HN)
+#   source      dict  {"name": str}
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
 # NewsAPI fetch
 # ---------------------------------------------------------------------------
 
 NEWSAPI_URL = "https://newsapi.org/v2/everything"
 
 # Deliberately broad — the keyword pre-filter and LLM do the real filtering.
-# A complex AND query on the free tier reliably returns 0 results.
-SEARCH_QUERY = '"artificial intelligence" OR "machine learning" OR "large language model"'
+NEWSAPI_QUERY = '"artificial intelligence" OR "machine learning" OR "large language model"'
 
 
-def fetch_candidates(api_key: str, lookback_hours: int) -> list[dict]:
+def fetch_newsapi(api_key: str, lookback_hours: int) -> list[dict]:
     from_dt = (
         datetime.now(timezone.utc) - timedelta(hours=lookback_hours)
     ).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     params = {
-        "q": SEARCH_QUERY,
+        "q": NEWSAPI_QUERY,
         "from": from_dt,
-        "sortBy": "publishedAt",  # relevancy sort is restricted on the free tier
-        "pageSize": 100,          # max allowed; stays within free-tier total cap
+        "sortBy": "publishedAt",
+        "pageSize": 100,
         "language": "en",
         "apiKey": api_key,
     }
@@ -118,10 +130,144 @@ def fetch_candidates(api_key: str, lookback_hours: int) -> list[dict]:
     data = resp.json()
 
     if data.get("status") != "ok":
-        sys.exit(f"ERROR: NewsAPI returned error: {data.get('message', data)}")
+        print(f"[fetch/newsapi] WARNING: {data.get('message', data)}")
+        return []
 
     articles = data.get("articles", [])
-    print(f"[fetch] {len(articles)} articles returned by NewsAPI")
+    print(f"[fetch/newsapi] {len(articles)} articles returned")
+    return [
+        {
+            "title": a.get("title") or "",
+            "url": a.get("url") or "",
+            "description": a.get("description") or a.get("content") or "",
+            "source": {"name": (a.get("source") or {}).get("name") or "Unknown"},
+        }
+        for a in articles
+    ]
+
+
+# ---------------------------------------------------------------------------
+# Guardian API fetch
+# ---------------------------------------------------------------------------
+
+GUARDIAN_URL = "https://content.guardianapis.com/search"
+GUARDIAN_QUERY = "artificial intelligence OR machine learning"
+
+
+def fetch_guardian(api_key: str, lookback_hours: int) -> list[dict]:
+    from_date = (
+        datetime.now(timezone.utc) - timedelta(hours=lookback_hours)
+    ).strftime("%Y-%m-%d")
+
+    params = {
+        "q": GUARDIAN_QUERY,
+        "from-date": from_date,
+        "page-size": 50,
+        "show-fields": "trailText",
+        "order-by": "newest",
+        "api-key": api_key,
+    }
+
+    resp = requests.get(GUARDIAN_URL, params=params, timeout=30)
+    resp.raise_for_status()
+    data = resp.json()
+
+    results = data.get("response", {}).get("results", [])
+    print(f"[fetch/guardian] {len(results)} articles returned")
+    return [
+        {
+            "title": r.get("webTitle") or "",
+            "url": r.get("webUrl") or "",
+            "description": (r.get("fields") or {}).get("trailText") or "",
+            "source": {"name": "The Guardian"},
+        }
+        for r in results
+    ]
+
+
+# ---------------------------------------------------------------------------
+# Hacker News fetch (via Algolia search API — no key required)
+# ---------------------------------------------------------------------------
+
+HN_SEARCH_URL = "https://hn.algolia.com/api/v1/search"
+HN_QUERY = "artificial intelligence"
+
+
+def fetch_hn(lookback_hours: int) -> list[dict]:
+    cutoff = int(
+        (datetime.now(timezone.utc) - timedelta(hours=lookback_hours)).timestamp()
+    )
+
+    params = {
+        "query": HN_QUERY,
+        "tags": "story",
+        "numericFilters": f"created_at_i>{cutoff}",
+        "hitsPerPage": 50,
+    }
+
+    resp = requests.get(HN_SEARCH_URL, params=params, timeout=30)
+    resp.raise_for_status()
+    hits = resp.json().get("hits", [])
+
+    articles = []
+    for h in hits:
+        url = h.get("url") or ""
+        if not url:
+            continue  # skip self/Ask HN posts without an external link
+        articles.append({
+            "title": h.get("title") or "",
+            "url": url,
+            "description": "",  # HN hits don't carry article summaries
+            "source": {"name": "Hacker News"},
+        })
+
+    print(f"[fetch/hn] {len(articles)} articles returned (of {len(hits)} hits)")
+    return articles
+
+
+# ---------------------------------------------------------------------------
+# RSS feed fetch (no key required)
+# ---------------------------------------------------------------------------
+
+HTML_TAG_RE = re.compile(r"<[^>]+>")
+
+
+def fetch_rss_feeds(feed_urls: list[str], lookback_hours: int) -> list[dict]:
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=lookback_hours)
+    articles = []
+
+    for feed_url in feed_urls:
+        try:
+            feed = feedparser.parse(feed_url)
+            source_name = feed.feed.get("title") or feed_url
+            count = 0
+
+            for entry in feed.entries:
+                url = entry.get("link") or ""
+                if not url:
+                    continue
+
+                # Filter by publication date when available
+                if entry.get("published_parsed"):
+                    pub = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+                    if pub < cutoff:
+                        continue
+
+                summary = entry.get("summary") or entry.get("description") or ""
+                summary = HTML_TAG_RE.sub("", summary).strip()
+
+                articles.append({
+                    "title": entry.get("title") or "",
+                    "url": url,
+                    "description": summary[:500],
+                    "source": {"name": source_name},
+                })
+                count += 1
+
+            print(f"[fetch/rss] {count} articles from {source_name}")
+        except Exception as exc:
+            print(f"[fetch/rss] ERROR fetching {feed_url}: {exc}")
+
     return articles
 
 
@@ -151,7 +297,6 @@ def keyword_prefilter(articles: list[dict]) -> list[dict]:
             rejected += 1
             continue
 
-        # Skip articles with no usable URL
         url = article.get("url") or ""
         if not url or "removed" in url.lower():
             rejected += 1
@@ -222,8 +367,7 @@ def filter_with_llm(
 
         headline = (article.get("title") or "").strip()
         source = ((article.get("source") or {}).get("name") or "Unknown").strip()
-        # Prefer description over content; content is often truncated by NewsAPI
-        summary = (article.get("description") or article.get("content") or "").strip()
+        summary = (article.get("description") or "").strip()
 
         prompt = prompt_template.format(
             headline=headline,
@@ -260,7 +404,7 @@ def filter_with_llm(
         if decision == "ACCEPT" and confidence == "HIGH":
             if len(accepted) < max_stories:
                 accepted.append(story)
-                known_ids.add(sid)   # prevent double-count if URL appears twice
+                known_ids.add(sid)
         elif decision == "ACCEPT" and confidence == "MEDIUM":
             pending.append(story)
             known_ids.add(sid)
@@ -280,9 +424,6 @@ def main() -> None:
     max_stories: int = config["max_stories_per_day"]
     lookback_hours: int = config["lookback_hours"]
 
-    news_api_key = os.environ.get("NEWS_API_KEY")
-    if not news_api_key:
-        sys.exit("ERROR: NEWS_API_KEY environment variable not set.")
     if not os.environ.get("ANTHROPIC_API_KEY"):
         sys.exit("ERROR: ANTHROPIC_API_KEY environment variable not set.")
 
@@ -298,8 +439,46 @@ def main() -> None:
     prune_old_stories(store)
     known = existing_ids(store)
 
-    # Fetch → pre-filter → LLM filter
-    articles = fetch_candidates(news_api_key, lookback_hours)
+    # ------------------------------------------------------------------
+    # Fetch from all sources
+    # ------------------------------------------------------------------
+    all_articles: list[dict] = []
+
+    news_api_key = os.environ.get("NEWS_API_KEY")
+    if news_api_key:
+        all_articles += fetch_newsapi(news_api_key, lookback_hours)
+    else:
+        print("[fetch/newsapi] NEWS_API_KEY not set — skipping")
+
+    guardian_api_key = os.environ.get("GUARDIAN_API")
+    if guardian_api_key:
+        all_articles += fetch_guardian(guardian_api_key, lookback_hours)
+    else:
+        print("[fetch/guardian] GUARDIAN_API not set — skipping")
+
+    all_articles += fetch_hn(lookback_hours)
+
+    rss_feeds: list[str] = config.get("rss_feeds", [])
+    if rss_feeds:
+        all_articles += fetch_rss_feeds(rss_feeds, lookback_hours)
+
+    # Deduplicate by URL before any filtering
+    seen_urls: set[str] = set()
+    articles: list[dict] = []
+    for a in all_articles:
+        url = a.get("url") or ""
+        if url and url not in seen_urls:
+            seen_urls.add(url)
+            articles.append(a)
+
+    print(
+        f"\n[fetch] {len(articles)} unique articles from all sources"
+        f" ({len(all_articles)} total before dedup)"
+    )
+
+    # ------------------------------------------------------------------
+    # Pre-filter → LLM filter
+    # ------------------------------------------------------------------
     articles = keyword_prefilter(articles)
 
     print(f"\n[llm] Evaluating {len(articles)} candidates with {model}...")
@@ -320,8 +499,6 @@ def main() -> None:
     print(f"  Total in feed:      {len(store['stories'])}")
     print(f"  Total pending:      {len(store['pending'])}")
 
-    # Expose counts as GitHub Actions step outputs so the workflow can
-    # build a meaningful commit message without re-parsing the JSON.
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
         with open(github_output, "a") as f:

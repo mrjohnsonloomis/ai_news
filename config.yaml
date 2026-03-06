@@ -2,3 +2,9 @@ active_prompt: prompts/filter_current.txt
 max_stories_per_day: 10
 lookback_hours: 72
 model: claude-sonnet-4-20250514
+
+rss_feeds:
+  - https://www.theatlantic.com/feed/all/
+  - https://www.newyorker.com/feed/everything
+  - https://www.technologyreview.com/feed/
+  - https://www.wired.com/feed/rss
