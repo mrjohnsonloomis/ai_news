@@ -341,6 +341,42 @@
     }
 
     /* ======================================================================
+       FILTER BAR
+    ====================================================================== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-1);
+      margin-bottom: var(--sp-6);
+    }
+
+    .tag-btn {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 2rem;
+      padding: 0.25rem 0.75rem;
+      cursor: pointer;
+      transition: color 0.1s, border-color 0.1s, background 0.1s;
+    }
+
+    .tag-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    .tag-btn.active {
+      color: var(--bg);
+      background: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    /* ======================================================================
        FOOTER
     ====================================================================== */
     footer {
@@ -514,7 +550,8 @@
   // ────────────────────────────────────────────────────────────────────────
 
   function metaHtml(story) {
-    return `<p class="card-date">${esc(formatDateShort(story.date))}</p>`;
+    const source = story.source ? `${esc(story.source)} · ` : '';
+    return `<p class="card-date">${source}${esc(formatDateShort(story.date))}</p>`;
   }
 
   function featuredHtml(story) {
@@ -583,9 +620,15 @@
     return featuredHtml(featured) + gridHtml(rest);
   }
 
-  // Filter bar suppressed per design direction — function kept for future use
   function filterBarHtml(stories) {
-    return '';
+    const tags = [...new Set(stories.map(s => normalizeTag(s.tag)))].sort();
+    if (tags.length === 0) return '';
+    const buttons = ['all', ...tags].map(tag => {
+      const label = tag === 'all' ? 'All' : tag;
+      const active = currentFilter === tag ? ' active' : '';
+      return `<button class="tag-btn${active}" data-tag="${esc(tag)}">${esc(label)}</button>`;
+    }).join('');
+    return `<div class="filter-bar">${buttons}</div>`;
   }
 
   function pendingHtml(pending) {
