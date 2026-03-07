@@ -231,42 +231,6 @@
     }
 
     /* ======================================================================
-       PENDING SECTION
-    ====================================================================== */
-    .pending-section {
-      display: none;
-      margin-top: var(--sp-12);
-      padding-top: var(--sp-6);
-      border-top: 1px solid var(--border);
-    }
-
-    .pending-eyebrow {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: var(--sp-1);
-    }
-
-    .pending-note {
-      font-size: 0.875rem;
-      color: var(--text-tertiary);
-      line-height: 1.55;
-      margin-bottom: var(--sp-4);
-    }
-
-    .pending-note code {
-      font-family: 'SFMono-Regular', Consolas, monospace;
-      font-size: 0.75rem;
-      background: var(--border);
-      padding: 1px 5px;
-      border-radius: 3px;
-    }
-
-    .card.pending { opacity: 0.6; }
-
-    /* ======================================================================
        EMPTY STATE
     ====================================================================== */
     .empty-state {
@@ -444,8 +408,6 @@
     <!-- Story content: re-rendered on filter change -->
     <div id="story-content" aria-live="polite"></div>
 
-    <!-- Pending: shown if pending array is non-empty -->
-    <div id="pending-section" class="pending-section"></div>
   </div>
 </main>
 
@@ -631,29 +593,6 @@
     return `<div class="filter-bar">${buttons}</div>`;
   }
 
-  function pendingHtml(pending) {
-    const n = pending.length;
-    return `
-      <p class="pending-eyebrow">Pending review</p>
-      <p class="pending-note">
-        ${n === 1 ? 'One story' : `${n} stories`} passed with medium confidence
-        and ${n === 1 ? 'is' : 'are'} awaiting manual review.
-        Approve with <code>python scripts/manage.py approve &lt;id&gt;</code>.
-      </p>
-      <div class="story-grid">
-        ${pending.map(s => `
-          <article class="card pending">
-            <h3 class="card-headline">
-              <a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">
-                ${esc(s.headline)}
-              </a>
-            </h3>
-            ${metaHtml(s)}
-            ${s.reason ? `<p class="card-note">${esc(s.reason)}</p>` : ''}
-          </article>`).join('\n')}
-      </div>`;
-  }
-
   // ────────────────────────────────────────────────────────────────────────
   // Filter interaction (logic preserved, UI suppressed)
   // ────────────────────────────────────────────────────────────────────────
@@ -673,7 +612,6 @@
   async function init() {
     const filterBarEl = document.getElementById('filter-bar');
     const contentEl   = document.getElementById('story-content');
-    const pendingEl   = document.getElementById('pending-section');
     const tsEl        = document.getElementById('last-updated');
 
     // Show skeleton immediately
@@ -685,7 +623,6 @@
       const data = await resp.json();
 
       allStories = data.stories ?? [];
-      const pending = data.pending ?? [];
 
       // Render filter bar (currently returns empty string)
       const barHtml = filterBarHtml(allStories);
@@ -699,12 +636,6 @@
 
       // Render stories
       contentEl.innerHTML = storyContentHtml();
-
-      // Render pending section if needed
-      if (pending.length > 0) {
-        pendingEl.innerHTML = pendingHtml(pending);
-        pendingEl.style.display = 'block';
-      }
 
       // Footer timestamp
       if (data.last_updated) {

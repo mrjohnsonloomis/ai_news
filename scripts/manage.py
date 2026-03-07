@@ -4,9 +4,7 @@ manage.py — Manual curation tool for the AI news feed.
 
 Commands:
   add <url>       Fetch title/description from URL, add directly to stories
-  remove <id>     Remove a story by ID (searches both stories and pending)
-  approve <id>    Move a story from pending → stories
-  list-pending    Print all pending stories in readable format
+  remove <id>     Remove a story by ID
 
 Usage: python scripts/manage.py <command> [args]
 Dependencies: requests, pyyaml
@@ -47,7 +45,7 @@ def load_stories() -> dict:
     if DATA_PATH.exists():
         with open(DATA_PATH) as f:
             return json.load(f)
-    return {"last_updated": "", "stories": [], "pending": []}
+    return {"last_updated": "", "stories": []}
 
 
 def save_stories(store: dict) -> None:
@@ -62,7 +60,7 @@ def make_story_id(url: str) -> str:
 
 
 def all_ids(store: dict) -> set:
-    return {s["id"] for s in store["stories"]} | {s["id"] for s in store["pending"]}
+    return {s["id"] for s in store["stories"]}
 
 
 # ---------------------------------------------------------------------------
@@ -158,13 +156,12 @@ def cmd_add(url: str) -> None:
 
 
 def cmd_remove(story_id: str) -> None:
-    """Remove a story by ID from stories or pending."""
+    """Remove a story by ID."""
     store = load_stories()
 
-    before = len(store["stories"]) + len(store["pending"])
+    before = len(store["stories"])
     store["stories"] = [s for s in store["stories"] if s["id"] != story_id]
-    store["pending"] = [s for s in store["pending"] if s["id"] != story_id]
-    after = len(store["stories"]) + len(store["pending"])
+    after = len(store["stories"])
 
     if before == after:
         print(f"No story found with id: {story_id}")
@@ -172,52 +169,6 @@ def cmd_remove(story_id: str) -> None:
 
     save_stories(store)
     print(f"Removed [{story_id}]")
-
-
-def cmd_approve(story_id: str) -> None:
-    """Move a story from pending → stories."""
-    store = load_stories()
-
-    matches = [s for s in store["pending"] if s["id"] == story_id]
-    if not matches:
-        # Give a helpful message if it's already in the main feed
-        if any(s["id"] == story_id for s in store["stories"]):
-            print(f"Story [{story_id}] is already in the main feed.")
-        else:
-            print(f"No pending story found with id: {story_id}")
-        return
-
-    story = matches[0]
-    store["pending"] = [s for s in store["pending"] if s["id"] != story_id]
-    # Prepend to stories so it appears near the top
-    store["stories"].insert(0, story)
-    save_stories(store)
-
-    print(f"Approved [{story_id}] → stories")
-    print(f"  Headline: {story['headline']}")
-
-
-def cmd_list_pending() -> None:
-    """Print all pending stories in a readable format."""
-    store = load_stories()
-    pending = store.get("pending", [])
-
-    if not pending:
-        print("No stories pending review.")
-        return
-
-    print(f"{len(pending)} pending {'story' if len(pending) == 1 else 'stories'}:\n")
-    for i, story in enumerate(pending, 1):
-        print(f"  [{i}] id:       {story['id']}")
-        print(f"       date:     {story.get('date', 'unknown')}")
-        print(f"       source:   {story.get('source', 'unknown')}")
-        print(f"       headline: {story.get('headline', '(none)')}")
-        print(f"       url:      {story.get('url', '')}")
-        print(f"       reason:   {story.get('reason', '')}")
-        print()
-
-    print("To approve: python scripts/manage.py approve <id>")
-    print("To remove:  python scripts/manage.py remove <id>")
 
 
 # ---------------------------------------------------------------------------
@@ -239,21 +190,12 @@ def main() -> None:
     p_remove = sub.add_parser("remove", help="Remove a story by ID")
     p_remove.add_argument("id", help="Story ID (16-char hex)")
 
-    p_approve = sub.add_parser("approve", help="Move a pending story to the main feed")
-    p_approve.add_argument("id", help="Story ID (16-char hex)")
-
-    sub.add_parser("list-pending", help="Print all pending stories")
-
     args = parser.parse_args()
 
     if args.command == "add":
         cmd_add(args.url)
     elif args.command == "remove":
         cmd_remove(args.id)
-    elif args.command == "approve":
-        cmd_approve(args.id)
-    elif args.command == "list-pending":
-        cmd_list_pending()
 
 
 if __name__ == "__main__":

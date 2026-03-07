@@ -52,7 +52,7 @@ def load_prompt(prompt_path: str) -> str:
 # stories.json helpers
 # ---------------------------------------------------------------------------
 
-EMPTY_STORE: dict = {"last_updated": "", "stories": [], "pending": []}
+EMPTY_STORE: dict = {"last_updated": "", "stories": []}
 
 
 def load_stories() -> dict:
@@ -70,21 +70,18 @@ def save_stories(store: dict) -> None:
 
 
 def prune_old_stories(store: dict, max_days: int = 90) -> None:
-    """Drop stories older than max_days from both arrays."""
+    """Drop stories older than max_days."""
     cutoff = (datetime.now(timezone.utc) - timedelta(days=max_days)).date().isoformat()
-    before = len(store["stories"]) + len(store["pending"])
+    before = len(store["stories"])
     store["stories"] = [s for s in store["stories"] if s.get("date", "") >= cutoff]
-    store["pending"] = [s for s in store["pending"] if s.get("date", "") >= cutoff]
-    pruned = before - len(store["stories"]) - len(store["pending"])
+    pruned = before - len(store["stories"])
     if pruned:
         print(f"[prune] Removed {pruned} stories older than {max_days} days")
 
 
 def existing_ids(store: dict) -> set:
-    """Return the set of all story IDs already in the store (both arrays)."""
-    ids = {s["id"] for s in store["stories"]}
-    ids |= {s["id"] for s in store["pending"]}
-    return ids
+    """Return the set of all story IDs already in the store."""
+    return {s["id"] for s in store["stories"]}
 
 
 def make_story_id(url: str) -> str:
@@ -341,23 +338,21 @@ def filter_with_llm(
     model: str,
     max_stories: int,
     known_ids: set,
-) -> tuple[list[dict], list[dict]]:
+) -> list[dict]:
     """
     Evaluate each article with the LLM.
 
     Returns:
         accepted  — ACCEPT + HIGH (up to max_stories)
-        pending   — ACCEPT + MEDIUM (no cap; for manual review)
-
-    Continues evaluating all candidates even after max_stories is reached
-    so MEDIUM-confidence stories aren't lost.
     """
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     accepted: list[dict] = []
-    pending: list[dict] = []
     today = datetime.now(timezone.utc).date().isoformat()
 
     for article in articles:
+        if len(accepted) >= max_stories:
+            break
+
         url = article.get("url") or ""
         sid = make_story_id(url)
 
@@ -402,15 +397,11 @@ def filter_with_llm(
         }
 
         if decision == "ACCEPT" and confidence == "HIGH":
-            if len(accepted) < max_stories:
-                accepted.append(story)
-                known_ids.add(sid)
-        elif decision == "ACCEPT" and confidence == "MEDIUM":
-            pending.append(story)
+            accepted.append(story)
             known_ids.add(sid)
-        # REJECT and anything unparseable → silently discard
+        # REJECT, MEDIUM, and anything unparseable → silently discard
 
-    return accepted, pending
+    return accepted
 
 
 # ---------------------------------------------------------------------------
@@ -482,28 +473,24 @@ def main() -> None:
     articles = keyword_prefilter(articles)
 
     print(f"\n[llm] Evaluating {len(articles)} candidates with {model}...")
-    accepted, pending = filter_with_llm(
+    accepted = filter_with_llm(
         articles, prompt_template, model, max_stories, known
     )
 
     # Prepend so newest stories appear first
     store["stories"] = accepted + store["stories"]
-    store["pending"] = pending + store["pending"]
 
     save_stories(store)
 
     print()
     print("=== Results ===")
-    print(f"  Accepted (HIGH):    {len(accepted)}")
-    print(f"  Pending  (MEDIUM):  {len(pending)}")
-    print(f"  Total in feed:      {len(store['stories'])}")
-    print(f"  Total pending:      {len(store['pending'])}")
+    print(f"  Accepted (HIGH):  {len(accepted)}")
+    print(f"  Total in feed:    {len(store['stories'])}")
 
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
         with open(github_output, "a") as f:
             f.write(f"stories_added={len(accepted)}\n")
-            f.write(f"pending_added={len(pending)}\n")
 
 
 if __name__ == "__main__":
