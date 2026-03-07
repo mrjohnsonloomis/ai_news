@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-03-06T08:58:22.213913+00:00",
+  "last_updated": "2026-03-07T08:48:11.379235+00:00",
   "stories": [
+    {
+      "id": "23c807e94cd4c667",
+      "date": "2026-03-07",
+      "headline": "AI blood test finds silent liver disease years before symptoms",
+      "source": "Science Daily",
+      "url": "https://www.sciencedaily.com/releases/2026/03/260305223204.htm",
+      "summary": "Researchers created an AI-driven liquid biopsy that scans patterns in fragments of DNA circulating in the blood. The system detected early liver fibrosis and cirrhosis—conditions that often go unnoticed until serious damage occurs. By analyzing genome-wide DN…",
+      "reason": "This describes a demonstrated AI application for early detection of serious liver disease that often goes undiagnosed, addressing a genuine health problem with broad human benefit from a credible scientific source.",
+      "tag": "Health"
+    },
     {
       "id": "1353d358d4fd0945",
       "date": "2026-03-06",
@@ -71,6 +81,16 @@
     }
   ],
   "pending": [
+    {
+      "id": "8603a6844c148f8b",
+      "date": "2026-03-07",
+      "headline": "Google introduces Yorùbá, Hausa support for AI Search in Nigeria",
+      "source": "The Punch",
+      "url": "https://punchng.com/google-introduces-yoruba-hausa-support-for-ai-search-in-nigeria/",
+      "summary": "Google expands its AI Search in Nigeria, adding support for Yorùbá and Hausa, allowing users to get quick summaries and explore the web in their mother ton\n\nRead More: https://punchng.com/google-introduces-yoruba-hausa-support-for-ai-search-in-nigeria/",
+      "reason": "This represents a real deployment of AI technology that addresses genuine barriers to information access for speakers of indigenous African languages, promoting digital inclusion for underserved linguistic communities.",
+      "tag": "Accessibility"
+    },
     {
       "id": "e396fca40e8ec600",
       "date": "2026-03-06",
