@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-03-07T08:48:11.379235+00:00",
+  "last_updated": "2026-03-08T08:48:13.405728+00:00",
   "stories": [
+    {
+      "id": "20f108ec0b34db5f",
+      "date": "2026-03-08",
+      "headline": "Accelerated discovery of highly active enzyme nanohybrids with parallelized Bayesian optimization in hybrid space",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41467-026-70251-3",
+      "summary": "AI is transforming protein engineering, but the immobilization of enzymes often impairs their activity. Here, the authors present a machine-learning-based workflow that can be used to identify optimal nanohybrids with high activity recovery across diverse enz…",
+      "reason": "This describes a demonstrated AI-powered methodology for enzyme engineering published in a top-tier peer-reviewed journal, addressing the fundamental scientific challenge of maintaining enzyme activity during immobilization, which has broad applications for biotechnology solutions to human problems.",
+      "tag": "Science"
+    },
+    {
+      "id": "7d6ca12d8d4a7077",
+      "date": "2026-03-08",
+      "headline": "Real-time eructation event prediction in livestock using head vibrations and machine-learning in an IoT wearable device",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-42728-0",
+      "summary": "Methane emissions from livestock are a major environmental concern, contributing approximately 14% of total anthropogenic greenhouse gas (GHG) emissions from agriculture. Among ruminants, eructation (belching) is a key physiological process through which most…",
+      "reason": "This describes a real AI application addressing livestock methane emissions (a significant climate problem) with transparent methodology from a credible peer-reviewed source, where the environmental benefits flow broadly to humanity.",
+      "tag": "Climate"
+    },
+    {
+      "id": "8b1e7c3fe711b63d",
+      "date": "2026-03-08",
+      "headline": "Mapping global avian influenza risk patterns through waterbird activity entropy",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41467-026-70432-0",
+      "summary": "Authors show that mapping waterbird activity entropy has the potential for identifying hotspots of avian influenza risk. The framework reveals substantial surveillance gaps, particularly across sub-Saharan Africa.",
+      "reason": "This describes a demonstrated AI/ML application for mapping disease risk patterns that addresses a genuine global health challenge, published in a credible peer-reviewed journal with transparent methodology that benefits public health broadly.",
+      "tag": "Health"
+    },
     {
       "id": "23c807e94cd4c667",
       "date": "2026-03-07",
