@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-03-09T09:02:06.054734+00:00",
+  "last_updated": "2026-03-13T09:00:47.340574+00:00",
   "stories": [
+    {
+      "id": "52500967d07dc2d2",
+      "date": "2026-03-13",
+      "headline": "Evidence from oracle bone inscriptions for research on typhoon-related disasters in the Central Plains and Chengdu Plain of China",
+      "source": "Upenn.edu",
+      "url": "https://languagelog.ldc.upenn.edu/nll/?p=73003",
+      "summary": "Archeological data with AI- and physics-based modeling explain typhoon-induced disasters in inland China around 3000 yr B.P.Science Advances, 12.10 (3/4/25)Ke Ding, Siyang Li, Aijun Ding, Houyuan Lu, Jianping Zhang, Dazhi Xi, Xin Huang, Sijia Lou, Xiaodong Ta…",
+      "reason": "This demonstrates a real application of AI and physics-based modeling to solve the genuine scientific and humanitarian challenge of understanding historical climate disasters, using credible archaeological data from an established academic institution to advance knowledge that could inform disaster preparedness.",
+      "tag": "Science"
+    },
     {
       "id": "4bbbd861a3c3d6e9",
       "date": "2026-03-09",
