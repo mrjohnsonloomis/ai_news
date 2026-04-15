@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-03-13T09:00:47.340574+00:00",
+  "last_updated": "2026-04-15T12:09:40.000916+00:00",
   "stories": [
+    {
+      "id": "960a468d0e12879b",
+      "date": "2026-04-15",
+      "headline": "Jammed phone lines. Burned-out dispatchers. Can AI ease a strained 911 system?",
+      "source": "Hacker News",
+      "url": "https://www.begiant.ca/stories/people/911-wait-times-artificial-intelligence",
+      "summary": "",
+      "reason": "This addresses a genuine public safety crisis (911 system strain affecting emergency response equity), describes real AI applications already in deployment at fire departments and dispatch centers, benefits the public broadly rather than corporate shareholders, comes from an established credible news outlet (NPR/Hacker News), and the impact is measurable through dispatcher workload reduction and response time metrics.",
+      "tag": "Humanitarian"
+    },
     {
       "id": "52500967d07dc2d2",
       "date": "2026-03-13",
