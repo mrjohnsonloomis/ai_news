@@ -1,7 +1,7 @@
 active_prompt: prompts/filter_current.txt
 max_stories_per_day: 10
 lookback_hours: 72
-model: claude-sonnet-4-20250514
+model: claude-haiku-4-5-20251001
 
 rss_feeds:
   - https://www.theatlantic.com/feed/all/
