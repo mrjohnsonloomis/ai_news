@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-04-15T12:09:40.000916+00:00",
+  "last_updated": "2026-04-19T09:06:32.179214+00:00",
   "stories": [
+    {
+      "id": "1cce9adb35a3de84",
+      "date": "2026-04-19",
+      "headline": "Effects of enhanced efficiency fertilizers on soil nitrous oxide emissions in corn agroecosystems: Integrating machine learning and meta-analysis",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-48776-w",
+      "summary": "Nitrous oxide (N2O) emissions from corn (Zea mays) production are a major source of agricultural greenhouse gases. Enhanced efficiency fertilizers (EEFs) are designed to reduce nitrogen losses, yet their effectiveness varies across soils and management system…",
+      "reason": "This is a peer-reviewed study from a credible source (Nature.com) describing a real, demonstrated application of machine learning and meta-analysis to reduce agricultural greenhouse gas emissions—a genuine climate problem—with transparent methodology that enables evaluation of impact.",
+      "tag": "Climate"
+    },
+    {
+      "id": "b260f128542ecaf8",
+      "date": "2026-04-19",
+      "headline": "Extrapancreatic extension modifies chemotherapy benefit in resected pancreatic ductal adenocarcinoma: a population-based cohort study",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-47990-w",
+      "summary": "The effect of extrapancreatic extension (EPE) on the benefit of chemotherapy remains unclear. We analyzed 22,045 surgically treated patients with resected PDAC from the SEER database (2004–2022). Variable importance was assessed using Random Survival Forest m…",
+      "reason": "This is a peer-reviewed study from Nature using machine learning (Random Survival Forest) on a large population dataset (22,045 patients from SEER) to improve understanding of chemotherapy efficacy in pancreatic cancer, a disease humanity has genuinely struggled to treat, with direct clinical benefits for patient treatment decisions.",
+      "tag": "Health"
+    },
+    {
+      "id": "3e974943b2ba5ca4",
+      "date": "2026-04-19",
+      "headline": "Wastewater intelligence predicts the emergence of clinically-relevant and drug-resistant Candidozyma auris at healthcare facilities",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41467-026-71960-5",
+      "summary": "Facility-level wastewater monitoring detected emerging Candidozyma auris subclades and resistance mutations 13–143 days before clinical identification, supported by &gt;90% genomic concordance between wastewater-derived and clinical isolate genomes.",
+      "reason": "This describes a real, deployed application of genomic sequencing and ML-based pattern detection that enables early warning of dangerous pathogen emergence in clinical settings—a genuine public health breakthrough with measurable, transparent methodology (13-143 day lead time, >90% genomic concordance) published in a top-tier peer-reviewed venue, delivering direct benefit to patient safety broadly.",
+      "tag": "Health"
+    },
     {
       "id": "960a468d0e12879b",
       "date": "2026-04-15",
