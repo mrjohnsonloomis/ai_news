@@ -1,6 +1,26 @@
 {
-  "last_updated": "2026-04-19T09:06:32.179214+00:00",
+  "last_updated": "2026-04-20T10:09:34.829188+00:00",
   "stories": [
+    {
+      "id": "d99f502b13d40c88",
+      "date": "2026-04-20",
+      "headline": "Oral microbiome signatures predict biological age and host health - PubMed",
+      "source": "National Institutes of Health",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41997961/",
+      "summary": "Identifying robust, non-invasive biomarkers of biological age is key to preventive medicine. While gut aging clocks exist, the oral microbiome remains underexplored as a quantitative biomarker. Using oral microbiome data from two NHANES cohorts (N = 4,675), w…",
+      "reason": "This peer-reviewed research from NIH demonstrates a real, current application of machine learning to identify non-invasive biomarkers for biological aging and health prediction using large representative cohorts (N=4,675), addressing the genuine medical challenge of preventive medicine with transparent, reproducible methodology that benefits public health broadly.",
+      "tag": "Health"
+    },
+    {
+      "id": "15245ffb6cc18a0a",
+      "date": "2026-04-20",
+      "headline": "Skin cancer detection using late fusion of pretrained models",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-48687-w",
+      "summary": "Skin cancer is one of the most common and fatal malignancies worldwide, and reliable, early diagnosis systems are required to provide effective clinical intervention. Nevertheless, even with recent progress in deep learning, current models tend to overfit and…",
+      "reason": "Nature.com published peer-reviewed research describing a real, demonstrated AI application (late fusion of deep learning models) that directly addresses a genuine public health problem (early skin cancer detection), with transparent methodology suitable for clinical evaluation and benefits flowing to patients broadly, not corporate interests.",
+      "tag": "Health"
+    },
     {
       "id": "1cce9adb35a3de84",
       "date": "2026-04-19",
