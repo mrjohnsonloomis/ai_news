@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-04-20T10:09:34.829188+00:00",
+  "last_updated": "2026-04-21T09:50:31.690882+00:00",
   "stories": [
+    {
+      "id": "88f8abc0f8215ea2",
+      "date": "2026-04-21",
+      "headline": "Chatbots often offer 'problematic' cancer advice, study finds",
+      "source": "NBC News",
+      "url": "https://www.nbcnews.com/health/health-news/chatbots-offer-problematic-cancer-vaccines-5g-advice-study-rcna332068",
+      "summary": "Artificial intelligence chatbots will tell you where to find alternatives to chemotherapy if you ask them, a new study finds",
+      "reason": "This describes a real, recently demonstrated problem (AI chatbots providing dangerous medical misinformation) that affects broad public health and safety, comes from a credible established news source, and addresses a genuine struggle in ensuring reliable health information access.",
+      "tag": "Health"
+    },
     {
       "id": "d99f502b13d40c88",
       "date": "2026-04-20",
