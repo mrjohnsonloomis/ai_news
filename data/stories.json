@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-04-21T09:50:31.690882+00:00",
+  "last_updated": "2026-04-23T09:56:50.726630+00:00",
   "stories": [
+    {
+      "id": "2e0e5fd78793407c",
+      "date": "2026-04-23",
+      "headline": "Simpler Is Better for Autograders",
+      "source": "Rand.org",
+      "url": "https://www.rand.org/pubs/research_reports/RRA4618-1.html",
+      "summary": "A simple rubric-based autograder outperformed more-complex large language model grading methods across benchmarks, often matching or beating nonexpert human graders while cutting down evaluation time and cost.",
+      "reason": "This is a credible empirical study from RAND Corporation (established research institution) demonstrating a real, recently demonstrated application addressing genuine educational challenges—showing that simpler AI methods outperform complex ones for student assessment while reducing costs and evaluation burden, with measurable outcomes against human graders and clear methodology that can be transparently evaluated.",
+      "tag": "Education"
+    },
     {
       "id": "88f8abc0f8215ea2",
       "date": "2026-04-21",
