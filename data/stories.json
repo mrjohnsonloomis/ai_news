@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-04-25T09:08:08.530826+00:00",
+  "last_updated": "2026-04-29T10:16:29.758445+00:00",
   "stories": [
+    {
+      "id": "ed5ab1e708194af9",
+      "date": "2026-04-29",
+      "headline": "Pompeii archaeologists use AI to reconstruct man killed in volcano's eruption - NPR",
+      "source": "Slashdot.org",
+      "url": "https://slashdot.org/firehose.pl?op=view&amp;id=183020942",
+      "summary": "Pompeii archaeologists use AI to reconstruct man killed in volcano's eruptionNPR Archaeologists use AI to generate image of Pompeii victimReuters Pompeii, artificial intelligence reconstructs for the first time the escape of an eruption victimFinestre sull'Ar…",
+      "reason": "This describes a real, demonstrated application of AI to archaeological reconstruction at Pompeii—addressing genuine scientific discovery and cultural preservation by generating visual evidence of historical victims—sourced from credible outlets (NPR, Reuters) with transparent methodology and measurable scholarly output.",
+      "tag": "Science"
+    },
     {
       "id": "0958d05322cef1b3",
       "date": "2026-04-25",
