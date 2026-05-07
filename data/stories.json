@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-04T10:24:40.669875+00:00",
+  "last_updated": "2026-05-07T10:36:15.530359+00:00",
   "stories": [
+    {
+      "id": "8e5cfba4f06c53b8",
+      "date": "2026-05-07",
+      "headline": "New AI method tackles one of science’s hardest math problems",
+      "source": "Science Daily",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260505234605.htm",
+      "summary": "Penn researchers have developed a smarter AI method for solving notoriously difficult inverse equations, which help scientists uncover hidden causes behind observable effects. By introducing “mollifier layers” that smooth noisy data, they’ve made these calcul…",
+      "reason": "Penn researchers have demonstrated a real, currently-deployed AI method (mollifier layers) that solves a genuine scientific bottleneck in inverse problems—enabling better extraction of hidden causes from observable data—with transparent methodology that benefits the broader scientific community's ability to tackle downstream problems in climate, medicine, and other critical domains.",
+      "tag": "Science"
+    },
     {
       "id": "7790697f55adc16f",
       "date": "2026-05-04",
