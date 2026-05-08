@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-05-07T10:36:15.530359+00:00",
+  "last_updated": "2026-05-08T09:55:27.372702+00:00",
   "stories": [
+    {
+      "id": "b677f82a06889bf8",
+      "date": "2026-05-08",
+      "headline": "EU: Agreement to ban AI services that create sexual deepfakes",
+      "source": "Protothema.gr",
+      "url": "https://en.protothema.gr/2026/05/07/eu-agreement-to-ban-ai-services-that-create-sexual-deepfakes/",
+      "summary": "This issue had caused a stir in many countries and the launch of an EU investigation\nThe post EU: Agreement to ban AI services that create sexual deepfakes appeared first on ProtoThema English.",
+      "reason": "This story describes a real, current regulatory action (EU agreement to ban sexual deepfake services) addressing a genuine harm to people broadly—non-consensual sexual imagery—with credible sourcing from an established news outlet, and the benefit flows to potential victims rather than commercial interests.",
+      "tag": "Humanitarian"
+    },
+    {
+      "id": "526f9bcbc9e68637",
+      "date": "2026-05-08",
+      "headline": "EU reaches tentative deal on simpler AI rules, plans ban on 'nudifier' apps",
+      "source": "DW (English)",
+      "url": "https://www.dw.com/en/eu-reaches-tentative-deal-on-simpler-ai-rules-plans-ban-on-nudifier-apps/a-77073411",
+      "summary": "In a provisional deal, the European Union has agreed on a ban on the use of AI for creating pornographic deepfakes and sexualized imagery. It has also agreed on amending certain rules within the EU's AI Act. European Union member nations and European Parliame…",
+      "reason": "This story describes real, recently enacted EU regulatory action addressing a genuine societal harm (non-consensual sexual imagery) with broad public benefit, from a credible established news source (DW), and the impact is measurable through enforcement of legal prohibitions.",
+      "tag": "Other"
+    },
+    {
+      "id": "eecda512b5a3dd45",
+      "date": "2026-05-08",
+      "headline": "States Across Wildfire-Prone West Are Using AI for Early Detection",
+      "source": "Insurance Journal",
+      "url": "https://www.insurancejournal.com/news/west/2026/05/07/868644.htm",
+      "summary": "On a March afternoon, artificial intelligence detected something resembling smoke on a camera feed from Arizona’s Coconino National Forest. Human analysts verified it wasn’t a cloud or dust, then alerted the state’s forest service and largest electric utility…",
+      "reason": "This describes a real, currently deployed AI application addressing wildfire detection—a genuine problem humanity struggles with—that benefits the public broadly through early warning, sourced from an established insurance industry publication with credible reporting standards.",
+      "tag": "Conservation"
+    },
     {
       "id": "8e5cfba4f06c53b8",
       "date": "2026-05-07",
