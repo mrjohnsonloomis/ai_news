@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-08T09:55:27.372702+00:00",
+  "last_updated": "2026-05-09T09:30:41.587413+00:00",
   "stories": [
+    {
+      "id": "34e6484509c708c5",
+      "date": "2026-05-09",
+      "headline": "EU strikes deal to ban sexualised AI deepfakes",
+      "source": "The Times of India",
+      "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/eu-strikes-deal-to-ban-sexualised-ai-deepfakes/articleshow/130950691.cms",
+      "summary": "EU lawmakers and countries have agreed to ban AI systems generating sexualized deepfakes, drawing a red line against AI use for humiliation and exploitation. High-risk AI rule implementation has been delayed to late 2027 and 2028 to aid businesses and foster …",
+      "reason": "This describes a real, recently-negotiated regulatory application of AI that addresses genuine harms (non-consensual sexualized deepfakes used for humiliation and exploitation), benefits the public broadly through legal protection, comes from an established news outlet, and represents measurable policy implementation rather than speculation.",
+      "tag": "Humanitarian"
+    },
     {
       "id": "b677f82a06889bf8",
       "date": "2026-05-08",
