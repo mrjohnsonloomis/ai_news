@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-09T09:30:41.587413+00:00",
+  "last_updated": "2026-05-10T09:48:29.170623+00:00",
   "stories": [
+    {
+      "id": "091e26061059edc5",
+      "date": "2026-05-10",
+      "headline": "Best Live-Captioning Smart Glasses (2026), WIRED tested",
+      "source": "WIRED",
+      "url": "https://www.wired.com/gallery/best-captioning-glasses/",
+      "summary": "Can’t hear what they’re saying? Now you can turn on the subtitles for real-life conversations.",
+      "reason": "Live-captioning smart glasses directly address accessibility for deaf and hard-of-hearing people—a genuine, long-standing human problem—and WIRED's hands-on testing provides credible, measurable real-world evidence of a deployed AI application rather than speculation.",
+      "tag": "Accessibility"
+    },
     {
       "id": "34e6484509c708c5",
       "date": "2026-05-09",
