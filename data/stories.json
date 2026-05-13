@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-10T09:48:29.170623+00:00",
+  "last_updated": "2026-05-13T10:41:45.321503+00:00",
   "stories": [
+    {
+      "id": "8e5dbe51861ad0ea",
+      "date": "2026-05-13",
+      "headline": "FDA approves first AI test to guide breast cancer chemotherapy decisions",
+      "source": "Medical News Today",
+      "url": "https://www.medicalnewstoday.com/articles/fda-approves-first-ai-test-guide-breast-cancer-patients-chemotherapy",
+      "summary": "The FDA has cleared the first AI test to help breast cancer patients decide on chemotherapy. The multimodal artificial intelligence (MMAI) tool, known as ArteraAI, could help low risk patients avoid the risks of potentially unnecessary chemotherapy.",
+      "reason": "This describes a real FDA clearance (not a prediction) of an AI diagnostic tool addressing a genuine clinical challenge—reducing unnecessary chemotherapy exposure in breast cancer patients—from a credible medical news source, with clear measurable impact potential on patient outcomes across populations.",
+      "tag": "Health"
+    },
     {
       "id": "091e26061059edc5",
       "date": "2026-05-10",
