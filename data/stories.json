@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-13T10:41:45.321503+00:00",
+  "last_updated": "2026-05-14T10:31:45.576493+00:00",
   "stories": [
+    {
+      "id": "8be458204ae3d8c9",
+      "date": "2026-05-14",
+      "headline": "Satellites add a new layer to global poverty data",
+      "source": "DW (English)",
+      "url": "https://www.dw.com/en/satellites-add-a-new-layer-to-global-poverty-data/a-77130563",
+      "summary": "A new study using satellite data finds that 58% of the global population has been assigned to the wrong tier in the UN's Human Development Index. That can have real-world consequences for how aid reaches people. On paper, Arcelia looks like a poor-but-average…",
+      "reason": "The story describes a real, demonstrated application of satellite imagery and data analysis to identify critical gaps in poverty measurement that directly affect aid distribution to underserved populations—addressing a genuine humanitarian problem with transparent, measurable methodology from a credible source (DW).",
+      "tag": "Humanitarian"
+    },
     {
       "id": "8e5dbe51861ad0ea",
       "date": "2026-05-13",
