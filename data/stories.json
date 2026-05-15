@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-14T10:31:45.576493+00:00",
+  "last_updated": "2026-05-15T10:37:48.572507+00:00",
   "stories": [
+    {
+      "id": "28eb097a3a418333",
+      "date": "2026-05-15",
+      "headline": "IMD new monsoon forecast system: How AI will allow weather department in predicting rains",
+      "source": "The Times of India",
+      "url": "https://economictimes.indiatimes.com/news/new-updates/imd-new-monsoon-forecast-system-how-will-ai-allow-weather-department-in-predicting-rains/articleshow/131087424.cms",
+      "summary": "The India Meteorological Department has launched an AI-enabled monsoon advance forecasting system and a high-resolution spatial rainfall forecast for Uttar Pradesh. These new services aim to provide farmers and other stakeholders with precise, location-specif…",
+      "reason": "The story describes a real, currently deployed AI system (IMD's monsoon forecasting) addressing a genuine humanitarian problem (agricultural vulnerability to unpredictable monsoons affecting millions of Indian farmers), from a credible established news source, with tangible location-specific forecasting improvements that directly benefit a broadly underserved population.",
+      "tag": "Climate"
+    },
     {
       "id": "8be458204ae3d8c9",
       "date": "2026-05-14",
