@@ -1,6 +1,26 @@
 {
-  "last_updated": "2026-05-15T10:37:48.572507+00:00",
+  "last_updated": "2026-05-16T09:52:06.477478+00:00",
   "stories": [
+    {
+      "id": "f9e8a7335880209c",
+      "date": "2026-05-16",
+      "headline": "Developing GOV.UK Chat: Our data science and AI engineering journey",
+      "source": "Blog.gov.uk",
+      "url": "https://insidegovuk.blog.gov.uk/2026/05/15/developing-gov-uk-chat-our-data-science-and-ai-engineering-journey/",
+      "summary": "Find out how we've used insights and evaluation to refine our experimental AI-powered chatbot ahead of opening up access more widely",
+      "reason": "This describes a real, currently demonstrated application of AI (GOV.UK Chat) by a credible government source addressing genuine public need (accessible government services), with transparent evaluation methodology disclosed ahead of wider rollout.",
+      "tag": "Accessibility"
+    },
+    {
+      "id": "edd7ebc1ad407044",
+      "date": "2026-05-16",
+      "headline": "NASA’s new AI space chip could let spacecraft think for themselves",
+      "source": "Science Daily",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260515002134.htm",
+      "summary": "NASA is testing a next-generation space computer chip that could give spacecraft the ability to operate far more independently in deep space. The radiation-hardened processor is showing performance levels hundreds of times beyond current spaceflight computers…",
+      "reason": "This describes a real, currently-tested technology (radiation-hardened AI processor) that directly addresses a genuine scientific challenge (autonomous deep-space operation where communication delays make real-time Earth control impossible), sourced from a credible outlet, with measurable performance gains that benefit humanity's capacity for space exploration and discovery.",
+      "tag": "Science"
+    },
     {
       "id": "28eb097a3a418333",
       "date": "2026-05-15",
