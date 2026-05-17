@@ -1,6 +1,26 @@
 {
-  "last_updated": "2026-05-16T09:52:06.477478+00:00",
+  "last_updated": "2026-05-17T09:58:21.280630+00:00",
   "stories": [
+    {
+      "id": "8b5ef7246c0b59a1",
+      "date": "2026-05-17",
+      "headline": "De novo design of peptides localizing at the interface of biomolecular condensates",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41467-026-73099-9",
+      "summary": "Combining high-throughput molecular simulations, machine learning, and mixed-integer linear programming, the authors design peptides that localize to condensate interfaces, revealing surfactant-like, charge-dependent sequence rules.",
+      "reason": "This demonstrates a real, recently published application of ML and computational methods (high-throughput simulations + MILP optimization) to solve a genuine scientific discovery problem (understanding biomolecular condensate interfaces), with credible peer-review validation and broad potential benefits for protein engineering and disease research.",
+      "tag": "Science"
+    },
+    {
+      "id": "db177866f62aad01",
+      "date": "2026-05-17",
+      "headline": "Scientists find climate change is reducing oxygen in rivers worldwide",
+      "source": "National Observer",
+      "url": "https://www.nationalobserver.com/2026/05/15/news/scientists-find-climate-change-reducing-oxygen-rivers-worldwide",
+      "summary": "Global warming is causing rivers to slowly lose oxygen, threatening fish and other lives in the waterways, a new study shows. Researchers in China used satellites and artificial intelligence to track and analyze oxygen levels in more than 21,000 rivers across…",
+      "reason": "This describes a real, current application of AI and satellites to monitor a genuine environmental problem (deoxygenation of rivers from climate change) at global scale, sourced from an established news outlet, with measurable impact on ecosystems and human water security.",
+      "tag": "Climate"
+    },
     {
       "id": "f9e8a7335880209c",
       "date": "2026-05-16",
