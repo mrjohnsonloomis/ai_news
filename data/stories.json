@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-17T09:58:21.280630+00:00",
+  "last_updated": "2026-05-18T11:54:54.215253+00:00",
   "stories": [
+    {
+      "id": "c9fa143ec547fe94",
+      "date": "2026-05-18",
+      "headline": "More than 100 drones on standby for wildfire season across Greece",
+      "source": "Protothema.gr",
+      "url": "https://en.protothema.gr/2026/05/17/more-than-100-drones-on-standby-for-wildfire-season-across-greece/",
+      "summary": "The Hellenic Fire Service and Civil Protection of Greece are deploying unmanned aerial vehicles equipped with thermal cameras and artificial intelligence for the immediate monitoring, detection, and management of forest fires\nThe post More than 100 drones on …",
+      "reason": "This describes a real, deployed application of AI-equipped thermal imaging for wildfire detection addressing a genuine humanitarian and climate challenge, sourced from an established news outlet, with measurable operational impact during active wildfire season.",
+      "tag": "Climate"
+    },
     {
       "id": "8b5ef7246c0b59a1",
       "date": "2026-05-17",
