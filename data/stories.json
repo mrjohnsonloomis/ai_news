@@ -1,6 +1,26 @@
 {
-  "last_updated": "2026-05-20T11:18:23.411960+00:00",
+  "last_updated": "2026-05-24T10:06:42.564715+00:00",
   "stories": [
+    {
+      "id": "d468dd1c6da3e987",
+      "date": "2026-05-24",
+      "headline": "EcoImpact: energy conservation using data-driven model predictive control and interpretable machine learning in the buildings sector",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-53373-y",
+      "summary": "Scientific Reports - EcoImpact: energy conservation using data-driven model predictive control and interpretable machine learning in the buildings sector",
+      "reason": "This is a peer-reviewed scientific study (Nature Scientific Reports) demonstrating a real, deployed application of ML and model predictive control that directly addresses energy conservation in buildings—a genuine climate mitigation challenge—with measurable outcomes and transparent methodology, benefiting broad populations through reduced emissions and energy costs.",
+      "tag": "Climate"
+    },
+    {
+      "id": "2b890b34e7d994c6",
+      "date": "2026-05-24",
+      "headline": "Estimating temporal treatment-effect patterns of radiotherapy and chemotherapy in lower-grade gliomas using causal machine learning",
+      "source": "Nature.com",
+      "url": "https://www.nature.com/articles/s41598-026-54656-0",
+      "summary": "Scientific Reports - Estimating temporal treatment-effect patterns of radiotherapy and chemotherapy in lower-grade gliomas using causal machine learning",
+      "reason": "A peer-reviewed study in Nature's Scientific Reports demonstrating a real, deployed application of causal machine learning to solve a genuine medical problem (improving treatment outcome prediction for glioma patients) with transparent methodology and direct human health benefit.",
+      "tag": "Health"
+    },
     {
       "id": "16b0bf4a2dc211ef",
       "date": "2026-05-20",
