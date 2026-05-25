@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-24T10:06:42.564715+00:00",
+  "last_updated": "2026-05-25T12:03:15.664744+00:00",
   "stories": [
+    {
+      "id": "3460715e671acc41",
+      "date": "2026-05-25",
+      "headline": "AI scans 400,000 Reddit posts and finds hidden Ozempic side effects",
+      "source": "Science Daily",
+      "url": "https://www.sciencedaily.com/releases/2026/05/260523103914.htm",
+      "summary": "By analyzing over 400,000 Reddit posts, researchers discovered that users of popular GLP-1 weight-loss drugs frequently discussed unexpected symptoms like menstrual irregularities, chills, and hot flashes. The findings suggest AI could turn social media into …",
+      "reason": "This describes a real, demonstrated application of AI text analysis to identify genuine health signals (adverse drug effects) from user-generated data—addressing the genuine problem of post-market drug safety surveillance—published by a credible academic source (Science Daily), with clear methodology and direct benefit to public health and patient safety.",
+      "tag": "Health"
+    },
     {
       "id": "d468dd1c6da3e987",
       "date": "2026-05-24",
