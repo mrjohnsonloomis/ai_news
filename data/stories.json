@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-25T12:03:15.664744+00:00",
+  "last_updated": "2026-05-27T11:49:26.977607+00:00",
   "stories": [
+    {
+      "id": "222f720d879eead0",
+      "date": "2026-05-27",
+      "headline": "How to tame AI's voracious appetite for energy – Knowable Magazine",
+      "source": "Hacker News",
+      "url": "https://knowablemagazine.org/content/article/technology/2026/lowering-energy-use-artificial-intelligence-datacenters",
+      "summary": "",
+      "reason": "Knowable Magazine (a credible, peer-reviewed science publication by the Annual Reviews nonprofit) reports on real technical solutions to AI's energy consumption—a genuine bottleneck to sustainable AI deployment—addressing a problem with measurable environmental and economic consequences.",
+      "tag": "Climate"
+    },
     {
       "id": "3460715e671acc41",
       "date": "2026-05-25",
