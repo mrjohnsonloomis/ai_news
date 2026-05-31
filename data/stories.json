@@ -1,6 +1,26 @@
 {
-  "last_updated": "2026-05-27T11:49:26.977607+00:00",
+  "last_updated": "2026-05-31T10:26:07.311565+00:00",
   "stories": [
+    {
+      "id": "3e52e301fab225cd",
+      "date": "2026-05-31",
+      "headline": "AI helped a musician with Parkinson’s finish his new album when he could no longer play guitar",
+      "source": "Abcnews.com",
+      "url": "https://abcnews.com/International/wireStory/ai-helped-musician-parkinsons-finish-new-album-longer-133441369",
+      "summary": "Artificial intelligence is helping a London-based singer-songwriter continue writing and recording music after Parkinson’s disease largely took away his ability to play guitar",
+      "reason": "This describes a real, current application of AI enabling a person with a degenerative disease to continue creative work despite physical disability—addressing both accessibility and quality-of-life challenges—from a credible mainstream news source with measurable impact (a completed album).",
+      "tag": "Accessibility"
+    },
+    {
+      "id": "c4f39881529fc1d0",
+      "date": "2026-05-31",
+      "headline": "AI helped a musician with Parkinson’s finish his new album when he could no longer play guitar",
+      "source": "seattlepi.com",
+      "url": "https://www.seattlepi.com/entertainment/article/ai-helped-a-musician-with-parkinson-s-finish-22283546.php",
+      "summary": "Artificial intelligence is helping a London-based singer-songwriter continue writing and recording music after Parkinson’s disease largely took away his ability to play guitar. Samuel Smith relied on AI-powered song generators to create the demos for one trac…",
+      "reason": "This describes a real, current application of AI directly addressing accessibility for someone with a degenerative disease (Parkinson's), enabling continued creative expression—a genuine human capability loss—through a credible mainstream news source, with measurable outcome (completed album).",
+      "tag": "Accessibility"
+    },
     {
       "id": "222f720d879eead0",
       "date": "2026-05-27",
