@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-05-31T10:26:07.311565+00:00",
+  "last_updated": "2026-06-01T13:49:19.042481+00:00",
   "stories": [
+    {
+      "id": "8a41e640c88dedd1",
+      "date": "2026-06-01",
+      "headline": "China has approved the world’s first invasive brain-computer chip—here’s what’s next",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/06/01/1138133/china-world-first-brain-chip/",
+      "summary": "One day last October, sitting in the courtyard of his house in China’s Henan province, Dong Hui decided to see if he could hold a pen to write.&#160; Dong, 39, had sustained spinal cord injuries in a car accident six years earlier that left him paralyzed from the neck down. Slowly but determinedly, he wrote&#8230;",
+      "reason": "This describes a real, recently demonstrated application of invasive brain-computer interface technology (not a prediction) that directly restores functional capability to a paralyzed person—addressing a genuine human challenge (spinal cord injury disability)—from a credible established source (MIT Technology Review), with measurable impact (the person writing again).",
+      "tag": "Health"
+    },
     {
       "id": "3e52e301fab225cd",
       "date": "2026-05-31",
