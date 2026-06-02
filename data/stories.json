@@ -1,6 +1,26 @@
 {
-  "last_updated": "2026-06-01T13:49:19.042481+00:00",
+  "last_updated": "2026-06-02T12:27:19.505959+00:00",
   "stories": [
+    {
+      "id": "315f22c4867209aa",
+      "date": "2026-06-02",
+      "headline": "The forgotten organ that could predict how long you live",
+      "source": "Science Daily",
+      "url": "https://www.sciencedaily.com/releases/2026/06/260601025352.htm",
+      "summary": "A long-overlooked organ may hold surprising clues to healthy aging and cancer survival. Researchers at Mass General Brigham used AI to analyze CT scans from tens of thousands of adults and found that people with healthier thymuses—a small immune-system organ …",
+      "reason": "This describes a real, recently demonstrated application of AI (analyzing thousands of CT scans to identify thymus health as a biomarker) addressing a genuine scientific problem (predicting healthy aging and cancer survival), from a credible academic source (Mass General Brigham), with broad public health benefit and transparent methodology amenable to evaluation.",
+      "tag": "Health"
+    },
+    {
+      "id": "1e42cdfdbc0d20c0",
+      "date": "2026-06-02",
+      "headline": "The Download: China’s brain implant ambitions",
+      "source": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/06/01/1138207/the-download-china-bci-brain-implant-nvidia-ai-chips-laptops/",
+      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. China has approved the world’s first invasive brain-computer chip—here’s what’s next Sitting in the courtyard of his house in China’s Henan province last October, Dong Hui decided to try holding a&#8230;",
+      "reason": "MIT Technology Review is a credible source reporting on a real, recently demonstrated medical application (China's first approved invasive brain-computer implant in a patient) addressing the genuine human problem of paralysis/motor disability, with measurable outcomes from an actual clinical case rather than predictions or funding announcements.",
+      "tag": "Health"
+    },
     {
       "id": "8a41e640c88dedd1",
       "date": "2026-06-01",
