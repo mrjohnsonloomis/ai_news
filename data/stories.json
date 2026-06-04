@@ -1,6 +1,26 @@
 {
-  "last_updated": "2026-06-02T12:27:19.505959+00:00",
+  "last_updated": "2026-06-04T11:25:35.282478+00:00",
   "stories": [
+    {
+      "id": "ffb33d471b5ae4f3",
+      "date": "2026-06-04",
+      "headline": "AI Used to Decrypt Medieval Ciphers",
+      "source": "Schneier.com",
+      "url": "https://www.schneier.com/blog/archives/2026/06/ai-used-to-decrypt-medieval-ciphers.html",
+      "summary": "Researchers are using machine learning algorithms to decrypt historical pencil-and-paper ciphers.",
+      "reason": "This describes a real, demonstrated application of ML to historical cipher decryption—a genuine scientific discovery problem with clear cultural preservation benefits, from a credible source (Schneier.com, a well-established security/technology publication).",
+      "tag": "Science"
+    },
+    {
+      "id": "2d6b92acfd7b7606",
+      "date": "2026-06-04",
+      "headline": "The MIT professor who taught the math behind every AI tool for 61 years gave the world something most universities never would",
+      "source": "The Times of India",
+      "url": "https://economictimes.indiatimes.com/news/international/us/the-mit-professor-who-taught-the-math-behind-every-ai-tool-for-61-years-gave-the-world-something-most-universities-never-would/articleshow/131480723.cms",
+      "summary": "Professor Gilbert Strang taught linear algebra for 61 years. His free online lectures, part of MIT OpenCourseWare, reached millions globally. These lectures made complex math accessible to students and professionals. Strang's clear teaching style and free ava…",
+      "reason": "This story documents a real, decades-long educational initiative (MIT OpenCourseWare lectures) that directly addressed education equity by making foundational mathematical knowledge freely accessible to millions globally, with measurable reach and documented broad benefit beyond privileged groups.",
+      "tag": "Education"
+    },
     {
       "id": "315f22c4867209aa",
       "date": "2026-06-02",
@@ -470,24 +490,6 @@
       "summary": "No one has had a Synchron brain-computer interface longer than Rodney Gorham. He’s still finding new ways to use it.",
       "reason": "This story documents a real, demonstrated brain-computer interface application that addresses the genuine accessibility challenge of severe paralysis, with measurable long-term outcomes from an established credible source.",
       "tag": "Accessibility"
-    },
-    {
-      "id": "973da97f15164b7f",
-      "date": "2026-03-04",
-      "headline": "Paired regional complementarity in diffusion MRI reveals disease-specific microstructural profiles in PD, MSA, and PSP: a feasibility study",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41598-026-41695-w",
-      "summary": "Parkinson’s disease (PD) is a prevalent neurodegenerative disorder characterized by tremor, rigidity, bradykinesia, and postural instability. Atypical Parkinsonian syndromes such as progressive supranuclear palsy (PSP) and multiple system atrophy (MSA) share …",
-      "reason": "This is a peer-reviewed study from Nature demonstrating a real AI/ML application (diffusion MRI analysis) that could help solve the genuine medical challenge of accurately diagnosing neurodegenerative diseases like Parkinson's, which would benefit patients broadly through improved treatment outcomes."
-    },
-    {
-      "id": "83c922a2d8e2d865",
-      "date": "2026-03-04",
-      "headline": "Proteomics-based machine learning model for predicting secondary infection in HBV-related liver failure",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41467-026-69075-y",
-      "summary": "In this work, authors develop and validate a plasma proteomics-based model for the prediction of secondary infections in hepatitis B virus-related liver failure.",
-      "reason": "This describes a developed and validated ML model addressing the genuine medical challenge of predicting secondary infections in liver failure patients, published in a credible peer-reviewed source with transparent methodology."
     }
   ],
   "pending": [
