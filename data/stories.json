@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-06-04T11:25:35.282478+00:00",
+  "last_updated": "2026-06-07T10:38:04.395796+00:00",
   "stories": [
+    {
+      "id": "7f680f26cd14630f",
+      "date": "2026-06-07",
+      "headline": "Researchers Successfully Trial AI-Designed Vaccine for the First Time",
+      "source": "PCMag.com",
+      "url": "https://uk.pcmag.com/ai/165394/researchers-successfully-trial-ai-designed-vaccine-for-the-first-time",
+      "summary": "The researchers used machine learning on genetic sequence data to design a super-antigen containing features common across the entire sarbecovirus group, which includes the viruses responsible for SARS and Covid-19.\nA new AI-designed vaccine has proved succes…",
+      "reason": "This describes a real, recently demonstrated application of AI (machine learning on genetic sequences) addressing a genuine human problem (pandemic preparedness across a viral family), from a credible source, with measurable trial results showing practical benefit to public health broadly.",
+      "tag": "Health"
+    },
     {
       "id": "ffb33d471b5ae4f3",
       "date": "2026-06-04",
@@ -400,96 +410,6 @@
       "summary": "Solid-state batteries could be safer and more energy-dense than today’s lithium-ion technology, but finding materials that allow ions to move quickly through solid electrolytes has been difficult. Researchers developed a machine learning pipeline that predict…",
       "reason": "This describes a real ML application that has successfully identified new scientific insights for solid-state battery development, which addresses the critical global challenge of energy storage needed for climate solutions.",
       "tag": "Climate"
-    },
-    {
-      "id": "20f108ec0b34db5f",
-      "date": "2026-03-08",
-      "headline": "Accelerated discovery of highly active enzyme nanohybrids with parallelized Bayesian optimization in hybrid space",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41467-026-70251-3",
-      "summary": "AI is transforming protein engineering, but the immobilization of enzymes often impairs their activity. Here, the authors present a machine-learning-based workflow that can be used to identify optimal nanohybrids with high activity recovery across diverse enz…",
-      "reason": "This describes a demonstrated AI-powered methodology for enzyme engineering published in a top-tier peer-reviewed journal, addressing the fundamental scientific challenge of maintaining enzyme activity during immobilization, which has broad applications for biotechnology solutions to human problems.",
-      "tag": "Science"
-    },
-    {
-      "id": "7d6ca12d8d4a7077",
-      "date": "2026-03-08",
-      "headline": "Real-time eructation event prediction in livestock using head vibrations and machine-learning in an IoT wearable device",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41598-026-42728-0",
-      "summary": "Methane emissions from livestock are a major environmental concern, contributing approximately 14% of total anthropogenic greenhouse gas (GHG) emissions from agriculture. Among ruminants, eructation (belching) is a key physiological process through which most…",
-      "reason": "This describes a real AI application addressing livestock methane emissions (a significant climate problem) with transparent methodology from a credible peer-reviewed source, where the environmental benefits flow broadly to humanity.",
-      "tag": "Climate"
-    },
-    {
-      "id": "8b1e7c3fe711b63d",
-      "date": "2026-03-08",
-      "headline": "Mapping global avian influenza risk patterns through waterbird activity entropy",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41467-026-70432-0",
-      "summary": "Authors show that mapping waterbird activity entropy has the potential for identifying hotspots of avian influenza risk. The framework reveals substantial surveillance gaps, particularly across sub-Saharan Africa.",
-      "reason": "This describes a demonstrated AI/ML application for mapping disease risk patterns that addresses a genuine global health challenge, published in a credible peer-reviewed journal with transparent methodology that benefits public health broadly.",
-      "tag": "Health"
-    },
-    {
-      "id": "23c807e94cd4c667",
-      "date": "2026-03-07",
-      "headline": "AI blood test finds silent liver disease years before symptoms",
-      "source": "Science Daily",
-      "url": "https://www.sciencedaily.com/releases/2026/03/260305223204.htm",
-      "summary": "Researchers created an AI-driven liquid biopsy that scans patterns in fragments of DNA circulating in the blood. The system detected early liver fibrosis and cirrhosis—conditions that often go unnoticed until serious damage occurs. By analyzing genome-wide DN…",
-      "reason": "This describes a demonstrated AI application for early detection of serious liver disease that often goes undiagnosed, addressing a genuine health problem with broad human benefit from a credible scientific source.",
-      "tag": "Health"
-    },
-    {
-      "id": "1353d358d4fd0945",
-      "date": "2026-03-06",
-      "headline": "Singapore to launch AI tool to flag high-risk patients for heart screening",
-      "source": "CNA",
-      "url": "https://www.channelnewsasia.com/singapore/ai-diabetes-high-cholesterol-health-screening-woodlands-5972401",
-      "summary": "Doctors will be encouraged to use the new tool, which can predict a patient’s risk of developing diabetes or high cholesterol.",
-      "reason": "This describes a real AI tool being launched by Singapore's government to address the genuine healthcare challenge of early detection and prevention of cardiovascular disease, diabetes, and high cholesterol, with benefits flowing to patients and the broader population.",
-      "tag": "Health"
-    },
-    {
-      "id": "57d5c586b1864ca7",
-      "date": "2026-03-06",
-      "headline": "Respiratory sound analysis in a rabbit tracheomalacia model",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41598-026-42275-8",
-      "summary": "Tracheomalacia, which softens the tracheal wall and leads to airway collapse during breathing, can be challenging to detect, especially in children, due to its vague symptoms and the invasive nature of standard diagnostic procedures. In this study, we develop…",
-      "reason": "This describes a demonstrated AI/ML application for diagnosing a challenging pediatric respiratory condition using non-invasive methods, published in a credible peer-reviewed journal, addressing a genuine medical problem that affects children's health.",
-      "tag": "Health"
-    },
-    {
-      "id": "5b7af218fc49fbb1",
-      "date": "2026-03-06",
-      "headline": "Diagnosis model of early malignant pulmonary nodules based on clinical laboratory data",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41598-026-42111-z",
-      "summary": "Accurate differentiation of malignant from benign pulmonary nodules remains challenging. This study aimed to develop and validate machine learning models integrating seven autoantibodies (7-AABs) and routine laboratory parameters for lung cancer risk predicti…",
-      "reason": "This describes a demonstrated machine learning application for early lung cancer detection - a critical healthcare challenge - published in a credible peer-reviewed journal with transparent methodology that could benefit patients broadly.",
-      "tag": "Health"
-    },
-    {
-      "id": "91fae1ec44481785",
-      "date": "2026-03-06",
-      "headline": "Intensive longitudinal brain imaging reveals personalized signatures of chronic pain",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41593-026-02238-8",
-      "summary": "Tracking ongoing spontaneous pain in individuals with chronic pain is challenging. Using intensive longitudinal functional magnetic resonance imaging (fMRI) combined with continuous spontaneous pain ratings in two individuals with fibromyalgia, we trained per…",
-      "reason": "This represents a real ML application addressing the genuine medical challenge of objectively measuring chronic pain, which could benefit millions of sufferers who struggle with subjective pain assessment, and comes from a credible peer-reviewed source with transparent methodology.",
-      "tag": "Health"
-    },
-    {
-      "id": "161c926894d024de",
-      "date": "2026-03-06",
-      "headline": "What It’s Like to Have a Brain Implant for 5 Years",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/synchron-brain-computer-interface-five-years-als/",
-      "summary": "No one has had a Synchron brain-computer interface longer than Rodney Gorham. He’s still finding new ways to use it.",
-      "reason": "This story documents a real, demonstrated brain-computer interface application that addresses the genuine accessibility challenge of severe paralysis, with measurable long-term outcomes from an established credible source.",
-      "tag": "Accessibility"
     }
   ],
   "pending": [
