@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-06-07T10:38:04.395796+00:00",
+  "last_updated": "2026-06-08T12:45:01.913710+00:00",
   "stories": [
+    {
+      "id": "8e73b56a6de0caf2",
+      "date": "2026-06-08",
+      "headline": "The most powerful AI stories right now are not chatbots. They are the quiet algorithms reading burnt Roman scrolls, trawling through millions of galaxies, and finding things hidden in data no human team could ever finish searching.",
+      "source": "Space Daily",
+      "url": "https://spacedaily.com/t-the-most-powerful-ai-stories-right-now-are-not-chatbots-they-are-the-quiet-algorithms-reading-burnt-roman-scrolls-trawling-through-millions-of-galaxies-and-finding-things-hidden-in-data-no-human-te/",
+      "summary": "The artificial intelligence that holds the public’s attention writes essays, answers questions and holds a conversation. The artificial intelligence that is changing what scientists can actually do tends to be narrower, quieter and far less talkative. It read…",
+      "reason": "The story describes real, currently-demonstrated AI applications solving genuine scientific discovery problems (reading degraded historical artifacts, analyzing astronomical data, processing large datasets) that humans cannot solve at scale, from a credible established news source, with benefits flowing to scientific knowledge broadly rather than narrow commercial interests.",
+      "tag": "Science"
+    },
     {
       "id": "7f680f26cd14630f",
       "date": "2026-06-07",
@@ -390,26 +400,6 @@
       "summary": "Archeological data with AI- and physics-based modeling explain typhoon-induced disasters in inland China around 3000 yr B.P.Science Advances, 12.10 (3/4/25)Ke Ding, Siyang Li, Aijun Ding, Houyuan Lu, Jianping Zhang, Dazhi Xi, Xin Huang, Sijia Lou, Xiaodong Ta…",
       "reason": "This demonstrates a real application of AI and physics-based modeling to solve the genuine scientific and humanitarian challenge of understanding historical climate disasters, using credible archaeological data from an established academic institution to advance knowledge that could inform disaster preparedness.",
       "tag": "Science"
-    },
-    {
-      "id": "4bbbd861a3c3d6e9",
-      "date": "2026-03-09",
-      "headline": "Integrating optical and radar satellite data for conflict-related change detection in Ukraine",
-      "source": "Nature.com",
-      "url": "https://www.nature.com/articles/s41598-026-41424-3",
-      "summary": "Scientific Reports - Integrating optical and radar satellite data for conflict-related change detection in Ukraine",
-      "reason": "This describes a demonstrated AI application using satellite data integration to detect conflict-related changes in Ukraine, addressing the genuine humanitarian challenge of monitoring war damage and displacement through credible scientific methodology published in Nature.",
-      "tag": "Humanitarian"
-    },
-    {
-      "id": "5fe505c035f44862",
-      "date": "2026-03-09",
-      "headline": "AI discovers the hidden signal of liquid-like ion flow in solid-state batteries",
-      "source": "Science Daily",
-      "url": "https://www.sciencedaily.com/releases/2026/03/260307155938.htm",
-      "summary": "Solid-state batteries could be safer and more energy-dense than today’s lithium-ion technology, but finding materials that allow ions to move quickly through solid electrolytes has been difficult. Researchers developed a machine learning pipeline that predict…",
-      "reason": "This describes a real ML application that has successfully identified new scientific insights for solid-state battery development, which addresses the critical global challenge of energy storage needed for climate solutions.",
-      "tag": "Climate"
     }
   ],
   "pending": [
