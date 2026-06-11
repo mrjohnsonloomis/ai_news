@@ -1,6 +1,26 @@
 {
-  "last_updated": "2026-06-08T12:45:01.913710+00:00",
+  "last_updated": "2026-06-11T12:21:09.739759+00:00",
   "stories": [
+    {
+      "id": "a0bf607217ec7a45",
+      "date": "2026-06-11",
+      "headline": "Gemini scam detection is the AI feature I actually want on my parents' phones",
+      "source": "Android Police",
+      "url": "https://www.androidpolice.com/android-scam-alerts/",
+      "summary": "This is more useful than any other AI party trick",
+      "reason": "This describes a real, currently deployed AI application (Google's Gemini scam detection) addressing a genuine humanitarian problem (financial fraud targeting vulnerable populations like elderly people), published by an established tech news outlet, with practical measurable impact on fraud prevention.",
+      "tag": "Humanitarian"
+    },
+    {
+      "id": "87e8103fe85af953",
+      "date": "2026-06-11",
+      "headline": "Timing Trick Cuts Energy Used in LLM Training by Up to 14 Percent",
+      "source": "Ieee.org",
+      "url": "https://spectrum.ieee.org/llm-training-energy-saving-trick",
+      "summary": "OpenAI’s fourth large language model (LLM), GPT-4, took an estimated 50 Gigawatt-hours to train, or the equivalent of 5,000 American homes‘ yearly power consumption. That was in 2023. Since then, the computational resources used to train frontier LLMs have on…",
+      "reason": "This describes a real, recently demonstrated technical optimization (a timing trick reducing LLM training energy by 14%) that directly addresses genuine climate concerns from AI infrastructure, with credible sourcing (IEEE), transparent methodology for evaluation, and benefits flowing broadly through reduced computational resource consumption rather than to corporate shareholders alone.",
+      "tag": "Climate"
+    },
     {
       "id": "8e73b56a6de0caf2",
       "date": "2026-06-08",
