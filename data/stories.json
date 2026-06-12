@@ -1,6 +1,16 @@
 {
-  "last_updated": "2026-06-11T12:21:09.739759+00:00",
+  "last_updated": "2026-06-12T11:54:28.181630+00:00",
   "stories": [
+    {
+      "id": "c480996a35e5bef4",
+      "date": "2026-06-12",
+      "headline": "AI could uncover new physics faster but there’s a surprising catch",
+      "source": "Science Daily",
+      "url": "https://www.sciencedaily.com/releases/2026/06/260611024557.htm",
+      "summary": "Scientists found that transfer learning can make the search for new physics in the universe much faster, slashing the need for expensive simulations. Yet the approach can backfire when AI relies too heavily on familiar patterns, potentially missing evidence o…",
+      "reason": "This describes a real, recently demonstrated application of transfer learning to accelerate physics discovery (a genuine scientific bottleneck), from a credible source (Science Daily), with transparent discussion of both benefits and failure modes rather than hype.",
+      "tag": "Science"
+    },
     {
       "id": "a0bf607217ec7a45",
       "date": "2026-06-11",
@@ -410,16 +420,6 @@
       "summary": "",
       "reason": "This addresses a genuine public safety crisis (911 system strain affecting emergency response equity), describes real AI applications already in deployment at fire departments and dispatch centers, benefits the public broadly rather than corporate shareholders, comes from an established credible news outlet (NPR/Hacker News), and the impact is measurable through dispatcher workload reduction and response time metrics.",
       "tag": "Humanitarian"
-    },
-    {
-      "id": "52500967d07dc2d2",
-      "date": "2026-03-13",
-      "headline": "Evidence from oracle bone inscriptions for research on typhoon-related disasters in the Central Plains and Chengdu Plain of China",
-      "source": "Upenn.edu",
-      "url": "https://languagelog.ldc.upenn.edu/nll/?p=73003",
-      "summary": "Archeological data with AI- and physics-based modeling explain typhoon-induced disasters in inland China around 3000 yr B.P.Science Advances, 12.10 (3/4/25)Ke Ding, Siyang Li, Aijun Ding, Houyuan Lu, Jianping Zhang, Dazhi Xi, Xin Huang, Sijia Lou, Xiaodong Ta…",
-      "reason": "This demonstrates a real application of AI and physics-based modeling to solve the genuine scientific and humanitarian challenge of understanding historical climate disasters, using credible archaeological data from an established academic institution to advance knowledge that could inform disaster preparedness.",
-      "tag": "Science"
     }
   ],
   "pending": [
